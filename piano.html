@@ -88,40 +88,38 @@
                 </div>
             </nav>
     
-            <header class="site-header d-flex flex-column justify-content-center align-items-center">
+            <header class="site-header d-flex flex-column justify-content-center align-items-center" style="padding-bottom: 0px; padding-top: 80px;">
                 <div class="container">
                     <div class="row justify-content-center align-items-center">
 
-                        <div class="col-lg-5 col-12 mb-5">
+                        <div class="col-sm-5 col-12 mb-5">
                             <nav aria-label="breadcrumb">
                                 <ol class="breadcrumb">
-                                    <li class="breadcrumb-item"><a href="index.html">Homepage</a></li>
+                                    <li class="breadcrumb-item"><a href="index.html">Portfolio Projects</a></li>
 
-                                    <li class="breadcrumb-item active" aria-current="page">Web Design</li>
+                                    <li class="breadcrumb-item"><a href="index.html">Javascript</a></li>
+
+                                    <li class="breadcrumb-item active" aria-current="page">Piano Project</li>
                                 </ol>
                             </nav>
 
-                            <h2 class="text-white">Introduction to <br> Web Design 101</h2>
+                            <h4 class="text-white">Javascript Piano with all possible configs</h4>
 
                             <div class="d-flex align-items-center mt-5">
-                                <a href="#topics-detail" class="btn custom-btn custom-border-btn smoothscroll me-4">Read More</a>
+                                <a href="https://github.com/eag-ehsan/MyPortfolio.git" class="btn custom-btn custom-border-btn smoothscroll me-1">Source in github</a>
 
-                                <a href="#top" class="custom-icon bi-bookmark smoothscroll"></a>
+                                
                             </div>
                         </div>
 
-                        <div class="col-lg-5 col-12">
-                            <div class="topics-detail-block bg-white shadow-lg">
-                                <img src="images/topics/undraw_Remote_design_team_re_urdx.png" class="topics-detail-block-image img-fluid">
-                            </div>
-                        </div>
+                        
 
                     </div>
                 </div>
             </header>
 
 
-            <section class="topics-detail-section section-padding" id="topics-detail">
+            <section class="topics-detail-section" id="topics-detail" style="padding-top: 30px;">
                 <div class="container">
                     <div class="row">
 
@@ -129,14 +127,15 @@
                         <div class="pann">
 
 
-                            <div class="custom-select" style="width:200px; display:none;">
-                                <select id="sound">
-                                    <option value="0" selected="">Keyboard</option>
-                                    <option value="1">Organ</option>
-                                    <option value="2">Acoustic Guitar</option>
-                                    <option value="3">EDM, bro!</option>
-                                </select>
-                            </div>
+                            
+                            <select id="sound" class="form-select form-select-sm mt-3">
+                                <option value="0">Select Tones</option>
+                                <option value="1" selected>Normal piano</option>
+                                <option value="2">Church piano</option>
+                                <option value="3">Guitar electric</option>
+                                <option value="4">Minor scale</option>
+                            </select>
+                        
                             <div class="pann-mid">
                                 <label for="sli1">Volume:</label>
                                 <input type="range" min="1" max="100" value="50" class="slider" id="sli1">
@@ -169,6 +168,12 @@
                             </div>
                     
                         </div>
+                        
+                    
+                    
+
+                    </div>
+                    <div class="row">
                         <div id="keyboard" class="keyboard-holder">
                             <div class="white key" id="KEY_C,-1" style="width: 40px; height: 200px; left: 0px;">
                                 <div class="label">
@@ -347,119 +352,26 @@
                     
                         </div>
                     
-                    
+                    </div>
+                    <div class="row">
+
                         <div class="keyboard-options">
-                            Current Page [C<span id="OCTAVE_LOWER">4</span>-B<span id="OCTAVE_UPPER">6</span>]
+                            <p style="text-decoration-color: aliceblue;">Current Page [C<span id="OCTAVE_LOWER">4</span>-B<span id="OCTAVE_UPPER">6</span>]</p>
                             <img src="l.png" alt="left" id="-_OCTAVE" width="40" height="40">
                             <img src="r.png" alt="right" id="+_OCTAVE" width="40" height="40"><br>
                             <!-- <input type="button" id="-_OCTAVE" value="-">
                             <input type="button" id="+_OCTAVE" value="+"><br> -->
                             <!-- <i>(Use left/right arrows to adjust with keyboard)</i> -->
                         </div>
-                    
-
                     </div>
                 </div>
             </section>
 
 
-            <section class="section-padding section-bg">
-                <div class="container">
-                    <div class="row justify-content-center">
-
-                        <div class="col-lg-5 col-12">
-                            <img src="images/rear-view-young-college-student.jpg" class="newsletter-image img-fluid" alt="">
-                        </div>
-
-                        <div class="col-lg-5 col-12 subscribe-form-wrap d-flex justify-content-center align-items-center">
-                            <form class="custom-form subscribe-form" action="#" method="post" role="form">
-                                <h4 class="mb-4 pb-2">Get Newsletter</h4>
-
-                                <input type="email" name="subscribe-email" id="subscribe-email" pattern="[^ @]*@[^ @]*" class="form-control" placeholder="Email Address" required="">
-
-                                <div class="col-lg-12 col-12">
-                                    <button type="submit" class="form-control">Subscribe</button>
-                                </div>
-                            </form>
-                        </div>
-
-                    </div>
-                </div>
-            </section>
+  
         </main>
 		
-        <footer class="site-footer section-padding">
-            <div class="container">
-                <div class="row">
-
-                    <div class="col-lg-3 col-12 mb-4 pb-2">
-                        <a class="navbar-brand mb-2" href="index.html">
-                            <i class="bi-back"></i>
-                            <span>Topic</span>
-                        </a>
-                    </div>
-
-                    <div class="col-lg-3 col-md-4 col-6">
-                        <h6 class="site-footer-title mb-3">Resources</h6>
-
-                        <ul class="site-footer-links">
-                            <li class="site-footer-link-item">
-                                <a href="#" class="site-footer-link">Home</a>
-                            </li>
-
-                            <li class="site-footer-link-item">
-                                <a href="#" class="site-footer-link">How it works</a>
-                            </li>
-
-                            <li class="site-footer-link-item">
-                                <a href="#" class="site-footer-link">FAQs</a>
-                            </li>
-
-                            <li class="site-footer-link-item">
-                                <a href="#" class="site-footer-link">Contact</a>
-                            </li>
-                        </ul>
-                    </div>
-
-                    <div class="col-lg-3 col-md-4 col-6 mb-4 mb-lg-0">
-                        <h6 class="site-footer-title mb-3">Information</h6>
-
-                        <p class="text-white d-flex mb-1">
-                            <a href="tel: 305-240-9671" class="site-footer-link">
-                                305-240-9671
-                            </a>
-                        </p>
-
-                        <p class="text-white d-flex">
-                            <a href="mailto:info@company.com" class="site-footer-link">
-                                info@company.com
-                            </a>
-                        </p>
-                    </div>
-
-                    <div class="col-lg-3 col-md-4 col-12 mt-4 mt-lg-0 ms-auto">
-                        <div class="dropdown">
-                            <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            English</button>
-
-                            <ul class="dropdown-menu">
-                                <li><button class="dropdown-item" type="button">Thai</button></li>
-
-                                <li><button class="dropdown-item" type="button">Myanmar</button></li>
-
-                                <li><button class="dropdown-item" type="button">Arabic</button></li>
-                            </ul>
-                        </div>
-
-                        <p class="copyright-text mt-lg-5 mt-4">Copyright © 2048 Topic Listing Center. All rights reserved.
-                        <br><br>Design: <a rel="nofollow" href="https://templatemo.com" target="_blank">TemplateMo</a> Distribution <a href="https://themewagon.com">ThemeWagon</a></p>
-                        
-                    </div>
-
-                </div>
-            </div>
-        </footer>
-
+    
         <!-- JAVASCRIPT FILES -->
         <script src="js/jquery.min.js"></script>
         <script src="js/bootstrap.bundle.min.js"></script>
@@ -474,88 +386,6 @@
         a.draw();
     </script>
     
-    
-    <script>
-        var x, i, j, l, ll, selElmnt, a, b, c;
-        /*look for any elements with the class "custom-select":*/
-        x = document.getElementsByClassName("custom-select");
-        l = x.length;
-        for (i = 0; i < l; i++) {
-            selElmnt = x[i].getElementsByTagName("select")[0];
-            ll = selElmnt.length;
-            /*for each element, create a new DIV that will act as the selected item:*/
-            a = document.createElement("DIV");
-            a.setAttribute("class", "select-selected");
-            a.innerHTML = selElmnt.options[selElmnt.selectedIndex].innerHTML;
-            x[i].appendChild(a);
-            /*for each element, create a new DIV that will contain the option list:*/
-            b = document.createElement("DIV");
-            b.setAttribute("class", "select-items select-hide");
-            for (j = 1; j < ll; j++) {
-                /*for each option in the original select element,
-                create a new DIV that will act as an option item:*/
-                c = document.createElement("DIV");
-                c.innerHTML = selElmnt.options[j].innerHTML;
-                c.addEventListener("click", function(e) {
-                    /*when an item is clicked, update the original select box,
-                    and the selected item:*/
-                    var y, i, k, s, h, sl, yl;
-                    s = this.parentNode.parentNode.getElementsByTagName("select")[0];
-                    sl = s.length;
-                    h = this.parentNode.previousSibling;
-                    for (i = 0; i < sl; i++) {
-                        if (s.options[i].innerHTML == this.innerHTML) {
-                            s.selectedIndex = i;
-                            h.innerHTML = this.innerHTML;
-                            y = this.parentNode.getElementsByClassName("same-as-selected");
-                            yl = y.length;
-                            for (k = 0; k < yl; k++) {
-                                y[k].removeAttribute("class");
-                            }
-                            this.setAttribute("class", "same-as-selected");
-                            break;
-                        }
-                    }
-                    h.click();
-                });
-                b.appendChild(c);
-            }
-            x[i].appendChild(b);
-            a.addEventListener("click", function(e) {
-                /*when the select box is clicked, close any other select boxes,
-                and open/close the current select box:*/
-                e.stopPropagation();
-                closeAllSelect(this);
-                this.nextSibling.classList.toggle("select-hide");
-                this.classList.toggle("select-arrow-active");
-            });
-        }
-    
-        function closeAllSelect(elmnt) {
-            /*a function that will close all select boxes in the document,
-            except the current select box:*/
-            var x, y, i, xl, yl, arrNo = [];
-            x = document.getElementsByClassName("select-items");
-            y = document.getElementsByClassName("select-selected");
-            xl = x.length;
-            yl = y.length;
-            for (i = 0; i < yl; i++) {
-                if (elmnt == y[i]) {
-                    arrNo.push(i)
-                } else {
-                    y[i].classList.remove("select-arrow-active");
-                }
-            }
-            for (i = 0; i < xl; i++) {
-                if (arrNo.indexOf(i)) {
-                    x[i].classList.add("select-hide");
-                }
-            }
-        }
-        /*if the user clicks anywhere outside the select box,
-        then close all select boxes:*/
-        document.addEventListener("click", closeAllSelect);
-    </script>
     
 
 </html>

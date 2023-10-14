@@ -197,7 +197,7 @@ function AudioSynthView() {
 		var iKeys = 0;
 		var iWhite = 0;
 		var notes = __audioSynth._notes;
-
+		var lleft = 25;
 		for(var i=-1;i<=1;i++) {
 			for(var n in notes) {
 				if(n[2]!='b') {
@@ -227,7 +227,7 @@ function AudioSynthView() {
 				}
 			}
 		}
-
+		
 		visualKeyboard.style.width = iWhite * 40 + 'px';
 
 		window.addEventListener(evtListener[1], function() { n = keysPressed.length; while(n--) { fnRemoveKeyBinding({keyCode:keysPressed[n]}); } });
@@ -236,8 +236,18 @@ function AudioSynthView() {
 
 	// Creates our audio player
 	var fnPlayNote = function(note, octave) {
-
-		src = __audioSynth.generate(selectSound.value, note, octave, 2);
+		//alert(selectSound.value);
+		
+		var selvalu = 0;
+		if(selectSound.value==null)
+		{
+			selvalu = 0;
+		}
+		else
+		{
+			selvalu = selectSound.value - 1;
+		}
+		src = __audioSynth.generate(selvalu, note, octave, 2);
 		container = new Audio(src);
 		container.addEventListener('ended', function() { container = null; });
 		container.addEventListener('loadeddata', function(e) { e.target.play(); });

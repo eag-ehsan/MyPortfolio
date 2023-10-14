@@ -1,0 +1,561 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <meta name="description" content="">
+        <meta name="author" content="">
+
+        <title>Topic Detail Page</title>
+
+        <!-- CSS FILES -->        
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&family=Open+Sans&display=swap" rel="stylesheet">
+                        
+        <link href="css/bootstrap.min.css" rel="stylesheet">
+
+        <link href="css/bootstrap-icons.css" rel="stylesheet">
+
+        <link href="css/templatemo-topic-listing.css" rel="stylesheet">
+        <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+        <script src="js/audiosynth.js"></script>
+        <script src="js/audiosynth.view.js"></script>
+
+    </head>
+    
+    <body id="top">
+
+        <main>
+
+            <nav class="navbar navbar-expand-lg">
+                <div class="container">
+                    <a class="navbar-brand" href="index.html">
+                        <i class="bi-back"></i>
+                        <span>Ehsan A.G.</span>
+                    </a>
+    
+                    <div class="d-lg-none ms-auto me-4">
+                        <a href="#top" class="navbar-icon bi-person smoothscroll"></a>
+                    </div>
+    
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+    
+                    <div class="collapse navbar-collapse" id="navbarNav">
+                        <ul class="navbar-nav ms-lg-5 me-lg-auto">
+                            <li class="nav-item">
+                                <a class="nav-link click-scroll" href="index.html">Home</a>
+                            </li>
+    
+                            <li class="nav-item">
+                                <a class="nav-link click-scroll" href="#section_2">Portfolio Projects</a>
+                            </li>
+    
+                            <li class="nav-item">
+                                <a class="nav-link click-scroll" href="#section_3">My booklets</a>
+                            </li>
+    
+                            <li class="nav-item">
+                                <a class="nav-link click-scroll" href="#section_4">Downloads</a>
+                            </li>
+    
+                            <li class="nav-item">
+                                <a class="nav-link click-scroll" href="#section_5">Contact</a>
+                            </li>
+    
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarLightDropdownMenuLink" role="button"
+                                    data-bs-toggle="dropdown" aria-expanded="false">Pages</a>
+    
+                                <ul class="dropdown-menu dropdown-menu-light" aria-labelledby="navbarLightDropdownMenuLink">
+                                    <li><a class="dropdown-item" href="topics-listing.html">Topics Listing</a></li>
+    
+                                    <li><a class="dropdown-item" href="contact.html">Contact Form</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+    
+                        <div class="d-none d-lg-block">
+                            <a href="#top" class="navbar-icon bi-person smoothscroll"></a>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+    
+            <header class="site-header d-flex flex-column justify-content-center align-items-center">
+                <div class="container">
+                    <div class="row justify-content-center align-items-center">
+
+                        <div class="col-lg-5 col-12 mb-5">
+                            <nav aria-label="breadcrumb">
+                                <ol class="breadcrumb">
+                                    <li class="breadcrumb-item"><a href="index.html">Homepage</a></li>
+
+                                    <li class="breadcrumb-item active" aria-current="page">Web Design</li>
+                                </ol>
+                            </nav>
+
+                            <h2 class="text-white">Introduction to <br> Web Design 101</h2>
+
+                            <div class="d-flex align-items-center mt-5">
+                                <a href="#topics-detail" class="btn custom-btn custom-border-btn smoothscroll me-4">Read More</a>
+
+                                <a href="#top" class="custom-icon bi-bookmark smoothscroll"></a>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-5 col-12">
+                            <div class="topics-detail-block bg-white shadow-lg">
+                                <img src="images/topics/undraw_Remote_design_team_re_urdx.png" class="topics-detail-block-image img-fluid">
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </header>
+
+
+            <section class="topics-detail-section section-padding" id="topics-detail">
+                <div class="container">
+                    <div class="row">
+
+                        
+                        <div class="pann">
+
+
+                            <div class="custom-select" style="width:200px; display:none;">
+                                <select id="sound">
+                                    <option value="0" selected="">Keyboard</option>
+                                    <option value="1">Organ</option>
+                                    <option value="2">Acoustic Guitar</option>
+                                    <option value="3">EDM, bro!</option>
+                                </select>
+                            </div>
+                            <div class="pann-mid">
+                                <label for="sli1">Volume:</label>
+                                <input type="range" min="1" max="100" value="50" class="slider" id="sli1">
+                                <label id="lsli1">50</label>
+                            </div>
+                            <div class="pann-mid">
+                                <label for="sli2">Sinch:</label>
+                                <input type="range" min="1800" max="2200" value="2000" class="slider" id="sli2">
+                                <label id="lsli2">2.00</label>
+                            </div>
+                            <div class="pann-mid">
+                                <label for="sli3">Dmn1:</label>
+                                <input type="range" min="1" max="200" value="100" class="slider" id="sli3">
+                                <label id="lsli3">1</label>
+                            </div>
+                            <div class="pann-mid">
+                                <label for="sli4">Wave1:</label>
+                                <input type="range" min="1" max="400" value="100" class="slider" id="sli4">
+                                <label id="lsli4">1</label>
+                            </div>
+                            <div class="pann-mid">
+                                <label for="sli5">Wave2:</label>
+                                <input type="range" min="1" max="400" value="75" class="slider" id="sli5">
+                                <label id="lsli5">0.75</label>
+                            </div>
+                            <div class="pann-mid">
+                                <label for="sli6">Wave3:</label>
+                                <input type="range" min="1" max="300" value="10" class="slider" id="sli6">
+                                <label id="lsli6">0.10</label>
+                            </div>
+                    
+                        </div>
+                        <div id="keyboard" class="keyboard-holder">
+                            <div class="white key" id="KEY_C,-1" style="width: 40px; height: 200px; left: 0px;">
+                                <div class="label">
+                                    <b>Q</b><br><br>C<span name="OCTAVE_LABEL" value="-1">4</span>
+                                </div>
+                            </div>
+                            <div class="black key" id="KEY_C#,-1" style="width: 30px; height: 120px; left: 25px;">
+                                <div class="label">
+                                    <b>2</b><br><br>C<span name="OCTAVE_LABEL" value="-1">4</span>#
+                                </div>
+                            </div>
+                            <div class="white key" id="KEY_D,-1" style="width: 40px; height: 200px; left: 40px;">
+                                <div class="label">
+                                    <b>W</b><br><br>D<span name="OCTAVE_LABEL" value="-1">4</span>
+                                </div>
+                            </div>
+                            <div class="black key" id="KEY_D#,-1" style="width: 30px; height: 120px; left: 65px;">
+                                <div class="label"><b>3</b><br><br>D<span name="OCTAVE_LABEL" value="-1">4</span>#
+                                </div>
+                            </div>
+                            <div class="white key" id="KEY_E,-1" style="width: 40px; height: 200px; left: 80px;">
+                                <div class="label">
+                                    <b>E</b><br><br>E<span name="OCTAVE_LABEL" value="-1">4</span>
+                                </div>
+                            </div>
+                            <div class="white key" id="KEY_F,-1" style="width: 40px; height: 200px; left: 120px;">
+                                <div class="label"><b>R</b><br><br>F<span name="OCTAVE_LABEL" value="-1">4</span>
+                                </div>
+                            </div>
+                            <div class="black key" id="KEY_F#,-1" style="width: 30px; height: 120px; left: 145px;">
+                                <div class="label"><b>5</b><br><br>F<span name="OCTAVE_LABEL" value="-1">4</span>#
+                                </div>
+                            </div>
+                            <div class="white key" id="KEY_G,-1" style="width: 40px; height: 200px; left: 160px;">
+                                <div class="label"><b>T</b><br><br>G<span name="OCTAVE_LABEL" value="-1">4</span>
+                                </div>
+                            </div>
+                            <div class="black key" id="KEY_G#,-1" style="width: 30px; height: 120px; left: 185px;">
+                                <div class="label">
+                                    <b>6</b><br><br>G<span name="OCTAVE_LABEL" value="-1">4</span>#
+                                </div>
+                            </div>
+                            <div class="white key" id="KEY_A,-1" style="width: 40px; height: 200px; left: 200px;">
+                                <div class="label"><b>Y</b><br><br>A<span name="OCTAVE_LABEL" value="-1">4</span>
+                                </div>
+                            </div>
+                            <div class="black key" id="KEY_A#,-1" style="width: 30px; height: 120px; left: 225px;">
+                                <div class="label">
+                                    <b>7</b><br><br>A<span name="OCTAVE_LABEL" value="-1">4</span>#
+                                </div>
+                            </div>
+                            <div class="white key" id="KEY_B,-1" style="width: 40px; height: 200px; left: 240px;">
+                                <div class="label">
+                                    <b>U</b><br><br>B<span name="OCTAVE_LABEL" value="-1">4</span>
+                                </div>
+                            </div>
+                            <div class="white key" id="KEY_C,0" style="width: 40px; height: 200px; left: 280px;">
+                                <div class="label"><b>I</b><br><br>C<span name="OCTAVE_LABEL" value="0">5</span>
+                                </div>
+                            </div>
+                            <div class="black key" id="KEY_C#,0" style="width: 30px; height: 120px; left: 305px;">
+                                <div class="label"><b>9</b><br><br>C<span name="OCTAVE_LABEL" value="0">5</span>#
+                                </div>
+                            </div>
+                            <div class="white key" id="KEY_D,0" style="width: 40px; height: 200px; left: 320px;">
+                                <div class="label">
+                                    <b>O</b><br><br>D<span name="OCTAVE_LABEL" value="0">5</span>
+                                </div>
+                            </div>
+                            <div class="black key" id="KEY_D#,0" style="width: 30px; height: 120px; left: 345px;">
+                                <div class="label"><b>0</b><br><br>D<span name="OCTAVE_LABEL" value="0">5</span>#
+                                </div>
+                            </div>
+                            <div class="white key" id="KEY_E,0" style="width: 40px; height: 200px; left: 360px;">
+                                <div class="label"><b>P</b><br><br>E<span name="OCTAVE_LABEL" value="0">5</span>
+                                </div>
+                            </div>
+                            <div class="white key" id="KEY_F,0" style="width: 40px; height: 200px; left: 400px;">
+                                <div class="label">
+                                    <b>[</b><br><br>F<span name="OCTAVE_LABEL" value="0">5</span>
+                                </div>
+                            </div>
+                            <div class="black key" id="KEY_F#,0" style="width: 30px; height: 120px; left: 425px;">
+                                <div class="label">
+                                    <b>=</b><br><br>F<span name="OCTAVE_LABEL" value="0">5</span>#
+                                </div>
+                            </div>
+                            <div class="white key" id="KEY_G,0" style="width: 40px; height: 200px; left: 440px;">
+                                <div class="label">
+                                    <b>]</b><br><br>G<span name="OCTAVE_LABEL" value="0">5</span>
+                                </div>
+                            </div>
+                            <div class="black key" id="KEY_G#,0" style="width: 30px; height: 120px; left: 465px;">
+                                <div class="label">
+                                    <b>A</b><br><br>G<span name="OCTAVE_LABEL" value="0">5</span>#
+                                </div>
+                            </div>
+                            <div class="white key" id="KEY_A,0" style="width: 40px; height: 200px; left: 480px;">
+                                <div class="label">
+                                    <b>Z</b><br><br>A<span name="OCTAVE_LABEL" value="0">5</span>
+                                </div>
+                            </div>
+                            <div class="black key" id="KEY_A#,0" style="width: 30px; height: 120px; left: 505px;">
+                                <div class="label">
+                                    <b>S</b><br><br>A<span name="OCTAVE_LABEL" value="0">5</span>#
+                                </div>
+                            </div>
+                            <div class="white key" id="KEY_B,0" style="width: 40px; height: 200px; left: 520px;">
+                                <div class="label">
+                                    <b>X</b><br><br>B<span name="OCTAVE_LABEL" value="0">5</span>
+                                </div>
+                            </div>
+                            <div class="white key" id="KEY_C,1" style="width: 40px; height: 200px; left: 560px;">
+                                <div class="label">
+                                    <b>C</b><br><br>C<span name="OCTAVE_LABEL" value="1">6</span>
+                                </div>
+                            </div>
+                            <div class="black key" id="KEY_C#,1" style="width: 30px; height: 120px; left: 585px;">
+                                <div class="label">
+                                    <b>F</b><br><br>C<span name="OCTAVE_LABEL" value="1">6</span>#
+                                </div>
+                            </div>
+                            <div class="white key" id="KEY_D,1" style="width: 40px; height: 200px; left: 600px;">
+                                <div class="label">
+                                    <b>V</b><br><br>D<span name="OCTAVE_LABEL" value="1">6</span>
+                                </div>
+                            </div>
+                            <div class="black key" id="KEY_D#,1" style="width: 30px; height: 120px; left: 625px;">
+                                <div class="label">
+                                    <b>G</b><br><br>D<span name="OCTAVE_LABEL" value="1">6</span>#
+                                </div>
+                            </div>
+                            <div class="white key" id="KEY_E,1" style="width: 40px; height: 200px; left: 640px;">
+                                <div class="label">
+                                    <b>B</b><br><br>E<span name="OCTAVE_LABEL" value="1">6</span>
+                                </div>
+                            </div>
+                            <div class="white key" id="KEY_F,1" style="width: 40px; height: 200px; left: 680px;">
+                                <div class="label">
+                                    <b>N</b><br><br>F<span name="OCTAVE_LABEL" value="1">6</span>
+                                </div>
+                            </div>
+                            <div class="black key" id="KEY_F#,1" style="width: 30px; height: 120px; left: 705px;">
+                                <div class="label">
+                                    <b>J</b><br><br>F<span name="OCTAVE_LABEL" value="1">6</span>#
+                                </div>
+                            </div>
+                            <div class="white key" id="KEY_G,1" style="width: 40px; height: 200px; left: 720px;">
+                                <div class="label">
+                                    <b>M</b><br><br>G<span name="OCTAVE_LABEL" value="1">6</span>
+                                </div>
+                            </div>
+                            <div class="black key" id="KEY_G#,1" style="width: 30px; height: 120px; left: 745px;">
+                                <div class="label">
+                                    <b>K</b><br><br>G<span name="OCTAVE_LABEL" value="1">6</span>#
+                                </div>
+                            </div>
+                            <div class="white key" id="KEY_A,1" style="width: 40px; height: 200px; left: 760px;">
+                                <div class="label">
+                                    <b>,</b><br><br>A<span name="OCTAVE_LABEL" value="1">6</span>
+                                </div>
+                            </div>
+                            <div class="black key" id="KEY_A#,1" style="width: 30px; height: 120px; left: 785px;">
+                                <div class="label">
+                                    <b>L</b><br><br>A<span name="OCTAVE_LABEL" value="1">6</span>#
+                                </div>
+                            </div>
+                            <div class="white key" id="KEY_B,1" style="width: 40px; height: 200px; left: 800px;">
+                                <div class="label">
+                                    <b>.</b><br><br>B<span name="OCTAVE_LABEL" value="1">6</span>
+                                </div>
+                            </div>
+                    
+                    
+                    
+                    
+                        </div>
+                    
+                    
+                        <div class="keyboard-options">
+                            Current Page [C<span id="OCTAVE_LOWER">4</span>-B<span id="OCTAVE_UPPER">6</span>]
+                            <img src="l.png" alt="left" id="-_OCTAVE" width="40" height="40">
+                            <img src="r.png" alt="right" id="+_OCTAVE" width="40" height="40"><br>
+                            <!-- <input type="button" id="-_OCTAVE" value="-">
+                            <input type="button" id="+_OCTAVE" value="+"><br> -->
+                            <!-- <i>(Use left/right arrows to adjust with keyboard)</i> -->
+                        </div>
+                    
+
+                    </div>
+                </div>
+            </section>
+
+
+            <section class="section-padding section-bg">
+                <div class="container">
+                    <div class="row justify-content-center">
+
+                        <div class="col-lg-5 col-12">
+                            <img src="images/rear-view-young-college-student.jpg" class="newsletter-image img-fluid" alt="">
+                        </div>
+
+                        <div class="col-lg-5 col-12 subscribe-form-wrap d-flex justify-content-center align-items-center">
+                            <form class="custom-form subscribe-form" action="#" method="post" role="form">
+                                <h4 class="mb-4 pb-2">Get Newsletter</h4>
+
+                                <input type="email" name="subscribe-email" id="subscribe-email" pattern="[^ @]*@[^ @]*" class="form-control" placeholder="Email Address" required="">
+
+                                <div class="col-lg-12 col-12">
+                                    <button type="submit" class="form-control">Subscribe</button>
+                                </div>
+                            </form>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+        </main>
+		
+        <footer class="site-footer section-padding">
+            <div class="container">
+                <div class="row">
+
+                    <div class="col-lg-3 col-12 mb-4 pb-2">
+                        <a class="navbar-brand mb-2" href="index.html">
+                            <i class="bi-back"></i>
+                            <span>Topic</span>
+                        </a>
+                    </div>
+
+                    <div class="col-lg-3 col-md-4 col-6">
+                        <h6 class="site-footer-title mb-3">Resources</h6>
+
+                        <ul class="site-footer-links">
+                            <li class="site-footer-link-item">
+                                <a href="#" class="site-footer-link">Home</a>
+                            </li>
+
+                            <li class="site-footer-link-item">
+                                <a href="#" class="site-footer-link">How it works</a>
+                            </li>
+
+                            <li class="site-footer-link-item">
+                                <a href="#" class="site-footer-link">FAQs</a>
+                            </li>
+
+                            <li class="site-footer-link-item">
+                                <a href="#" class="site-footer-link">Contact</a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="col-lg-3 col-md-4 col-6 mb-4 mb-lg-0">
+                        <h6 class="site-footer-title mb-3">Information</h6>
+
+                        <p class="text-white d-flex mb-1">
+                            <a href="tel: 305-240-9671" class="site-footer-link">
+                                305-240-9671
+                            </a>
+                        </p>
+
+                        <p class="text-white d-flex">
+                            <a href="mailto:info@company.com" class="site-footer-link">
+                                info@company.com
+                            </a>
+                        </p>
+                    </div>
+
+                    <div class="col-lg-3 col-md-4 col-12 mt-4 mt-lg-0 ms-auto">
+                        <div class="dropdown">
+                            <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            English</button>
+
+                            <ul class="dropdown-menu">
+                                <li><button class="dropdown-item" type="button">Thai</button></li>
+
+                                <li><button class="dropdown-item" type="button">Myanmar</button></li>
+
+                                <li><button class="dropdown-item" type="button">Arabic</button></li>
+                            </ul>
+                        </div>
+
+                        <p class="copyright-text mt-lg-5 mt-4">Copyright © 2048 Topic Listing Center. All rights reserved.
+                        <br><br>Design: <a rel="nofollow" href="https://templatemo.com" target="_blank">TemplateMo</a> Distribution <a href="https://themewagon.com">ThemeWagon</a></p>
+                        
+                    </div>
+
+                </div>
+            </div>
+        </footer>
+
+        <!-- JAVASCRIPT FILES -->
+        <script src="js/jquery.min.js"></script>
+        <script src="js/bootstrap.bundle.min.js"></script>
+        <script src="js/jquery.sticky.js"></script>
+        <script src="js/custom.js"></script>
+
+    </body>
+
+
+    <script type="text/javascript">
+        var a = new AudioSynthView();
+        a.draw();
+    </script>
+    
+    
+    <script>
+        var x, i, j, l, ll, selElmnt, a, b, c;
+        /*look for any elements with the class "custom-select":*/
+        x = document.getElementsByClassName("custom-select");
+        l = x.length;
+        for (i = 0; i < l; i++) {
+            selElmnt = x[i].getElementsByTagName("select")[0];
+            ll = selElmnt.length;
+            /*for each element, create a new DIV that will act as the selected item:*/
+            a = document.createElement("DIV");
+            a.setAttribute("class", "select-selected");
+            a.innerHTML = selElmnt.options[selElmnt.selectedIndex].innerHTML;
+            x[i].appendChild(a);
+            /*for each element, create a new DIV that will contain the option list:*/
+            b = document.createElement("DIV");
+            b.setAttribute("class", "select-items select-hide");
+            for (j = 1; j < ll; j++) {
+                /*for each option in the original select element,
+                create a new DIV that will act as an option item:*/
+                c = document.createElement("DIV");
+                c.innerHTML = selElmnt.options[j].innerHTML;
+                c.addEventListener("click", function(e) {
+                    /*when an item is clicked, update the original select box,
+                    and the selected item:*/
+                    var y, i, k, s, h, sl, yl;
+                    s = this.parentNode.parentNode.getElementsByTagName("select")[0];
+                    sl = s.length;
+                    h = this.parentNode.previousSibling;
+                    for (i = 0; i < sl; i++) {
+                        if (s.options[i].innerHTML == this.innerHTML) {
+                            s.selectedIndex = i;
+                            h.innerHTML = this.innerHTML;
+                            y = this.parentNode.getElementsByClassName("same-as-selected");
+                            yl = y.length;
+                            for (k = 0; k < yl; k++) {
+                                y[k].removeAttribute("class");
+                            }
+                            this.setAttribute("class", "same-as-selected");
+                            break;
+                        }
+                    }
+                    h.click();
+                });
+                b.appendChild(c);
+            }
+            x[i].appendChild(b);
+            a.addEventListener("click", function(e) {
+                /*when the select box is clicked, close any other select boxes,
+                and open/close the current select box:*/
+                e.stopPropagation();
+                closeAllSelect(this);
+                this.nextSibling.classList.toggle("select-hide");
+                this.classList.toggle("select-arrow-active");
+            });
+        }
+    
+        function closeAllSelect(elmnt) {
+            /*a function that will close all select boxes in the document,
+            except the current select box:*/
+            var x, y, i, xl, yl, arrNo = [];
+            x = document.getElementsByClassName("select-items");
+            y = document.getElementsByClassName("select-selected");
+            xl = x.length;
+            yl = y.length;
+            for (i = 0; i < yl; i++) {
+                if (elmnt == y[i]) {
+                    arrNo.push(i)
+                } else {
+                    y[i].classList.remove("select-arrow-active");
+                }
+            }
+            for (i = 0; i < xl; i++) {
+                if (arrNo.indexOf(i)) {
+                    x[i].classList.add("select-hide");
+                }
+            }
+        }
+        /*if the user clicks anywhere outside the select box,
+        then close all select boxes:*/
+        document.addEventListener("click", closeAllSelect);
+    </script>
+    
+
+</html>

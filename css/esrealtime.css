@@ -1,0 +1,32 @@
+.interlvl1{
+    display: flex;
+flex-direction: row;
+
+
+}
+.interlvl2{
+   width: -webkit-fill-available;
+
+
+}
+.interlvl3{
+    
+    padding-top: 50px;
+    padding-bottom: 50px;
+
+
+}
+.interlvl4{
+    
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+
+
+input {
+    appearance: slider-vertical;
+    width: 8px;
+    height: 100%;
+    padding: 0 5px;
+}

@@ -1,0 +1,124 @@
+@charset "utf-8";
+/* CSS Document */
+
+
+	
+.canvascl{
+	
+	margin: 0 auto;
+	border:1px solid #ded0d0;
+	display: block;
+	direction: ltr!important;
+	
+}
+
+.esinput{
+    display: block;
+    width: 100%;
+    padding: 0.375rem 0.75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #212529;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    border-radius: 0.375rem;
+    margin-top: 3px;
+   
+}
+
+.esselect{
+    display: block;
+    width: 100%;
+    padding: 0.375rem 0.75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #212529;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    height: fit-content;
+    margin-top: 3px;
+    
+    border-radius: 0.375rem;
+}
+
+
+
+	.cont1{
+		background-color: #030800;
+		color: #DDFFBB;
+		border-radius: 20px;
+		font-size: 20px;
+		margin: 0 auto;
+		min-height: 500px;
+		min-width: 1100px;
+		max-width: 1100px;
+	}
+
+    .internaldivrow{
+        background: linear-gradient(185deg, black, #0f4661);
+    padding: 20px;
+    border-radius: 15px;
+    border: ridge; 
+    }
+    .internaldivrowgraph{
+        
+    padding: 20px;
+    border-radius: 15px;
+    border: ridge; 
+    }
+    .internaldivrow2{
+        text-align: center;
+        background-image: linear-gradient(173deg, #217eb4 0%, #68e4d5 100%);
+    
+    border-radius: 20px;
+    padding: 20px;
+    }
+    .interlvl2_1{
+        display: flex;
+    flex-direction: column;
+    width: 50%;
+    }
+    .interlvl2_2{
+        display: flex;
+    flex-direction: row;
+    margin-bottom: 5px;
+
+    }
+    .interlvl2_3{
+        display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+
+    }
+    .interlvl2_4{
+        display: flex;
+        flex-direction: row-reverse;
+
+    }
+    .interlvl2_5{
+        display: flex;
+    flex-direction: column;
+    width: 100%;
+
+    }
+    .esplotlabelcolorslight{
+        color: azure;
+        font-size: 14px;
+        width: -webkit-fill-available;
+    text-align: end;
+    margin: 5px;
+    }
+    .esplotlabelcolorslight2{
+        color: azure;
+        font-size: 14px;
+        width: -webkit-fill-available;
+    text-align:start;
+    margin: 5px;
+    }

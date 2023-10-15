@@ -1,0 +1,373 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Topic Detail Page</title>
+
+    <!-- CSS FILES -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&family=Open+Sans&display=swap"
+        rel="stylesheet">
+
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <link href="css/bootstrap-icons.css" rel="stylesheet">
+    <link href="css/esploter.css" rel="stylesheet" type="text/css">
+    <link href="css/templatemo-topic-listing.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+
+
+</head>
+
+<body id="top">
+
+    <main>
+
+        <nav class="navbar navbar-expand-lg">
+            <div class="container">
+                <a class="navbar-brand" href="index.html">
+                    <i class="bi-back"></i>
+                    <span>Ehsan A.G.</span>
+                </a>
+
+                <div class="d-lg-none ms-auto me-4">
+                    <a href="#top" class="navbar-icon bi-person smoothscroll"></a>
+                </div>
+
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-lg-5 me-lg-auto">
+                        <li class="nav-item">
+                            <a class="nav-link click-scroll" href="index.html">Home</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link click-scroll" href="#section_2">Portfolio Projects</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link click-scroll" href="#section_3">My booklets</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link click-scroll" href="#section_4">Downloads</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link click-scroll" href="#section_5">Contact</a>
+                        </li>
+
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarLightDropdownMenuLink" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">Pages</a>
+
+                            <ul class="dropdown-menu dropdown-menu-light" aria-labelledby="navbarLightDropdownMenuLink">
+                                <li><a class="dropdown-item" href="topics-listing.html">Topics Listing</a></li>
+
+                                <li><a class="dropdown-item" href="contact.html">Contact Form</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+
+                    <div class="d-none d-lg-block">
+                        <a href="#top" class="navbar-icon bi-person smoothscroll"></a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+        <header class="site-header d-flex flex-column justify-content-center align-items-center"
+            style="padding-bottom: 0px; padding-top: 80px;">
+            <div class="container">
+                <div class="row justify-content-md-start align-items-md-start">
+
+                    <div class="col-sm-5 col-12 mb-5">
+                        <nav aria-label="breadcrumb">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item"><a href="index.html">Portfolio Projects</a></li>
+
+                                <li class="breadcrumb-item"><a href="index.html">Javascript</a></li>
+
+                                <li class="breadcrumb-item active" aria-current="page">ES Ploter</li>
+                            </ol>
+                        </nav>
+
+                        <h5 class="text-white">ES Plot - Auto Scale drawing mathematic equations </h5>
+
+                        <div class="d-flex align-items-center mt-5">
+                            <a href="https://github.com/eag-ehsan/MyPortfolio.git"
+                                class="btn custom-btn custom-border-btn smoothscroll me-1">Source in github</a>
+
+
+                        </div>
+                    </div>
+
+
+
+                </div>
+            </div>
+        </header>
+
+
+        <section class="topics-detail-section" id="topics-detail" style="padding-top: 30px;">
+            <div class="container">
+                <div class="row">
+
+
+
+
+
+
+                </div>
+                <div class="row">
+
+ 
+                    <div class="internaldivrow">
+                        <div class="interlvl2_3">
+                            <p class="esplotlabelcolorslight2">Select a function from the list or write any function
+                                with factor a in Java syntax and then press the draw button.</p>
+                            <div class="interlvl2_2">
+                                <div class="interlvl2_1">
+                                    <select class="esselect" id="funcs" name="funcs" onChange="selFun()">
+                                        <option value="Math.sin(a*x)">sin(ax)</option>
+                                        <option value="Math.tan(a*x)">tan(ax)</option>
+                                        <option value="Math.pow(x,a)">y = x ^ a</option>
+                                        <option value="Math.sin(a*x)/(a*x)">y = Sinc(ax)</option>
+                                        <option value="Math.sin(Math.pow(x,a))">sin(x^a)</option>
+                                        <option value="Math.sinh(a*x)">sinh(ax)</option>
+                                    </select>
+                                </div>
+                                <div class="interlvl2_1">
+
+                                    <input class="esinput" id="function-code" type="text" value="Math.sin(a*x)" />
+
+
+
+                                    <div class="interlvl2_2">
+
+                                        <p class="esplotlabelcolorslight">Factor a:</p>
+                                        <input class="esinput" type="text" id="zariba" value="2">
+
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <div class="interlvl2_2">
+                                <div class="interlvl2_4">
+                                    <p class="esplotlabelcolorslight2">Back Color</p>
+                                    <input type="color" class="form-control form-control-color" id="esplotbackcolor"
+                                        value="#0F4661" title="Choose a color" onchange="javascript:setGrhaphBcolor();" onclick="javascript:setGrhaphBcolor();">
+                                </div>
+                                <div class="interlvl2_4">
+                                    <p class="esplotlabelcolorslight2">Chart Color</p>
+                                    <input type="color" class="form-control form-control-color"
+                                        id="esplotchartcolor" value="#C8FDF8" title="Choose a color" onchange="myCanvas()" onclick="myCanvas()">
+                                </div>
+                                <div class="interlvl2_4">
+                                    <p class="esplotlabelcolorslight2">Axes Color</p>
+                                    <input type="color" class="form-control form-control-color"
+                                        id="esplotaxestcolor" value="#FFFFFF" title="Choose a color" onchange="myCanvas()" onclick="myCanvas()">
+                                </div>
+
+                            </div>
+
+                            <div class="interlvl2_5">
+                                <button class="btn btn-success" onclick="myCanvas()">Click to draw</button>
+                            </div>
+                            <div class="interlvl2_5">
+                                <p id="idxy" class="esplotlabelcolorslight2">:</p>
+                            </div>
+                            
+                        </div>
+                    </div>
+
+
+                    <div class="internaldivrow" style="display: none;">
+
+
+
+                        <label>x=</label><input id="funp1" type="text"
+                            value="r*(k+1)*Math.cos(t)-r*Math.cos((k+1)*t)" />
+                        <label>r=</label><input id="rads1" type="text" value="1" />
+                        <label>AxisX=</label><input id="Axx" type="text" value="3.5" />
+
+                        <label for="zariba2">rep=</label>
+                        <input type="text" id="zariba2" value="100">
+                        <button onclick="myCanvas2()">Draw parametric functions</button>
+
+
+
+
+
+
+
+
+                        <label>y=</label><input id="funp2" type="text"
+                            value="r*(k+1)*Math.sin(t)-r*Math.sin((k+1)*t)" />
+                        <label>k=</label><input id="rads2" type="text" value="2.1" />
+                        <label>AxisY=</label><input id="Axy" type="text" value="3.5" />
+                        <label>spd=</label><input id="Spyd" type="text" value="20" />
+                        <button onclick="myCanvas3()">Slow plot</button>
+
+
+
+
+                        <select id="funcs2" name="funcs2" onChange="selFun2()">
+                            <option value="Epicycloid">Epicycloid</option>
+                            <option value="Hypocycloid">Hypocycloid</option>
+                        </select>
+
+                        <p>x y</p>
+
+                        <p>You can write your equation in javascript syntax and plot it </p>
+                        <p>[a] is Equation coefficient, you can change it and try to draw</p>
+                        <p></p>
+
+                    </div>
+
+ 
+                </div>
+
+
+
+                <div class="row">
+                    <div id="graphdiv" class="internaldivrowgraph">
+
+                        <canvas class="canvascl" width="1000" height="680" id="ehsanGraph"
+                            onmousemove="showCoords(event)"></canvas>
+
+                    </div>
+
+
+                </div>
+
+
+
+
+
+
+            </div>
+        </section>
+
+
+
+    </main>
+
+
+    <!-- JAVASCRIPT FILES -->
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/jquery.sticky.js"></script>
+    <script src="js/custom.js"></script>
+
+</body>
+
+<script src="js/esploter.js"></script>
+<script>
+    // ********************
+    var ctt = document.getElementById("ehsanGraph");
+    var dvv = document.getElementById("graphdiv");
+    var tCounter = 0;
+    var first = true;
+    function reOffset() {
+        var CC = ctt.getBoundingClientRect();
+        var CC2 = dvv.getBoundingClientRect();
+
+        offsetX = CC.left;
+        offsetY = CC.top;
+    }
+    var offsetX, offsetY;
+    reOffset();
+    window.onscroll = function (e) { reOffset(); }
+    window.onload = function (e) { reOffset(); }
+    //*********************************************
+
+
+
+
+
+
+    function selFun() {
+
+        var oopp = document.getElementById("funcs").value;
+
+        document.getElementById("function-code").value = oopp;
+    }
+    function selFun2() {
+
+        var oopp = document.getElementById("funcs2").value;
+        if (oopp == "Epicycloid") {
+            document.getElementById("funp1").value = "r*(k+1)*Math.cos(t)-r*Math.cos((k+1)*t)";
+            document.getElementById("funp2").value = "r*(k+1)*Math.sin(t)-r*Math.sin((k+1)*t)";
+        }
+        else if (oopp == "Hypocycloid") {
+            document.getElementById("funp1").value = "r*(k-1)*Math.cos(t)+r*Math.cos((k-1)*t)";
+            document.getElementById("funp2").value = "r*(k-1)*Math.sin(t)-r*Math.sin((k-1)*t)";
+        }
+
+    }
+
+
+    function myCanvas() {
+
+
+        RasmKon();
+
+    }
+    function myCanvas2() {
+
+
+        RasmKonP();
+
+    }
+
+    function myCanvas3() {
+
+        ctt = Canvas.getContext('2d');
+        var Wid = ctt.width;
+        var Hei = ctt.height;
+        ctt.clearRect(0, 0, Wid, Hei);
+        if (first) {
+            setMinMaxYP();
+            DrawAxesP2(ctt);
+        }
+        var a = document.getElementById("zariba2").value;
+        var r = document.getElementById("rads1").value;
+        var k = document.getElementById("rads2").value;
+        var sppp = document.getElementById("Spyd").value;
+        tCounter += 0.1;
+        SetNextPoint(a, r, k, tCounter);
+        if (first) {
+            ctt.moveTo(pX1, pY1);
+
+        } else {
+            ctt.lineTo(pX1, pY1);
+        }
+        ctt.strokeStyle = '#cafff9';
+        ctt.stroke();
+        ctt.restore();
+
+        first = false;
+        myVar = setTimeout(myCanvas3, sppp);
+
+
+    }
+
+</script>
+
+
+</html>

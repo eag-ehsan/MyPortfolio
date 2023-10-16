@@ -1,0 +1,22 @@
+.interlvl1{
+    display: flex;
+flex-direction: row;
+
+
+}
+.canvascl{
+	
+	margin: 0 auto;
+	border:1px solid #ded0d0;
+	display: block;
+	direction: ltr!important;
+	
+}
+.intersetclr{
+    width: auto;
+    height: 100px;
+    border-radius: 20px;
+    border-style: solid;
+    border-width: 2px;
+    border-color: blue;
+}

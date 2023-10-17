@@ -202,6 +202,10 @@ document.addEventListener('DOMContentLoaded', () => {
             }
 
         } 
+        if(numberoflights<=0)
+        {
+            urscore.innerHTML = 'Game Over. try again'
+        }
         onlights()
         tiledelect = []
         tiledelectId = []

@@ -1,5 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
 
+    var hightwidth = 100;
     const lvl1arr = [
         {
             name: 'aloo',
@@ -34,14 +35,19 @@ document.addEventListener('DOMContentLoaded', () => {
             img: 'images/sm-straw1.png'
         }
     ]
-    //lvl1arr.sort(() => 0.5 - Math.random())
-    const esmemlvl = document.querySelector('.esmemlvl')
+    lvl1arr.sort(() => 0.5 - Math.random())
+    const esmemlvl = document.getElementById('esmemlvl')
     const urscore = document.getElementById('urscore')
     let tiledelect = []
     let tiledelectId = []
     let wintile = []
 
     function lvl1create() {
+        
+        var itmp = 0;
+        var ltmp = 0;
+        var toptmp = '';
+        var lefttmp = '';
         for (let i = 0; i < 8; i++) {
 
             const divtile = document.createElement('div')
@@ -50,6 +56,14 @@ document.addEventListener('DOMContentLoaded', () => {
             divtile.setAttribute('id', 'divtile' + i)
             divtile.setAttribute('data-id', i)
             divtile.addEventListener('click', tilesflip)
+            divtile.setAttribute('width', hightwidth)
+            divtile.setAttribute('height', hightwidth)
+            itmp = Math.floor(i/4)
+            ltmp = (hightwidth*i) - (itmp*hightwidth*4)
+            toptmp = 'top: ' + hightwidth*itmp + 'px';
+            lefttmp = 'left: ' + ltmp + 'px';
+            divtile.setAttribute('style', toptmp + '; ' + lefttmp)
+            
             esmemlvl.appendChild(divtile)
 
             const divfront = document.createElement('div')
@@ -64,6 +78,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
             const divmom = document.querySelector('#divtile' + i)
+            divfront.setAttribute('width', hightwidth)
+            divfront.setAttribute('height', hightwidth)
+            divback.setAttribute('width', hightwidth)
+            divback.setAttribute('height', hightwidth)
             divmom.appendChild(divfront)
             divmom.appendChild(divback)
 
@@ -77,6 +95,10 @@ document.addEventListener('DOMContentLoaded', () => {
             tileback.setAttribute('src', lvl1arr[i].img)
             tilefront.setAttribute('data-id', i)
             tileback.setAttribute('data-id', i)
+            tilefront.setAttribute('width', hightwidth)
+            tilefront.setAttribute('height', hightwidth)
+            tileback.setAttribute('width', hightwidth)
+            tileback.setAttribute('height', hightwidth)
             frontmom.appendChild(tilefront)
             backmom.appendChild(tileback)
 

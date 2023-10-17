@@ -1,8 +1,6 @@
 .inttvv{
     display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    justify-content: center;
+    justify-content: space-around;
 }
 .inttvv2{
     display: flex;
@@ -10,21 +8,14 @@
     flex-wrap: wrap;
     align-items: flex-end;
 }
-.esmemlvl{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-}
+
 
 .tilessty {
     
-    width: 200px;
-    height: 200px;
+    position:relative;
     border-radius: 5px;
-    margin: 1px;
-    border-style: inset;
-    border-width: 1px;
-    border-color: forestgreen;
+    
+    
     
 
     -webkit-perspective: 600px;

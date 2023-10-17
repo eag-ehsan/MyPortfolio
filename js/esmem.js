@@ -36,18 +36,61 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     ]
     lvl1arr.sort(() => 0.5 - Math.random())
+    const inttvv = document.getElementById('inttvv')
+    const out2id = document.getElementById('out2id')
     const esmemlvl = document.getElementById('esmemlvl')
     const urscore = document.getElementById('urscore')
     let tiledelect = []
     let tiledelectId = []
     let wintile = []
+    var alllightsnumber = 25;
+    var numberoflights = 0;
+    function addlights()
+    {
+        for (let i = 0; i < alllightsnumber; i++)
+        {
+            const imglight = document.createElement('img')
+            imglight.setAttribute('id', 'imglight' + i)
 
-    function lvl1create() {
+            imglight.setAttribute('src', 'images/lightoff.png')
+            
+            imglight.setAttribute('width', 30)
+            imglight.setAttribute('height', 30)
+            
+            out2id.appendChild(imglight)
+        }
+    }
+    function onlights()
+    {
+        var localnuml=0;
+        if(numberoflights>alllightsnumber)
+        {
+            numberoflights = alllightsnumber
+        }
         
+        for (let i = 0; i < alllightsnumber; i++)
+        {
+            if(i<=numberoflights)
+            {
+                document.getElementById('imglight'+i).setAttribute('src','images/lighton.png')
+            }
+            else{
+                document.getElementById('imglight'+i).setAttribute('src','images/lightoff.png')
+            }
+        }
+        
+    }
+    function lvl1create() {
+        numberoflights = 5;
         var itmp = 0;
         var ltmp = 0;
         var toptmp = '';
         var lefttmp = '';
+        inttvv.setAttribute('style','width: 800px; height: 250px');
+        
+        //add lights
+        addlights()
+        onlights()
         for (let i = 0; i < 8; i++) {
 
             const divtile = document.createElement('div')
@@ -108,6 +151,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         }
     }
+
     function tilesflip() {
         let idtile = this.getAttribute('data-id');
         tiledelect.push(lvl1arr[idtile].name);
@@ -139,8 +183,10 @@ document.addEventListener('DOMContentLoaded', () => {
                 
                 tiless1.removeEventListener('click', tilesflip);
                 tiless2.removeEventListener('click', tilesflip);
+                numberoflights++;
                 wintile.push(tiledelect)
             } else {
+                numberoflights--;
                 if (tiless1.classList.contains("flip")) {
                     tiless1.classList.remove("flip")
                 }
@@ -156,7 +202,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }
 
         } 
-        
+        onlights()
         tiledelect = []
         tiledelectId = []
         urscore.innerHTML = wintile.length

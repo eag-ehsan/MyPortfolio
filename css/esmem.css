@@ -1,6 +1,26 @@
-.inttvv{
+.bigdiv{
     display: flex;
-    justify-content: space-around;
+    flex-direction: column;
+    
+}
+.out1{
+    border-radius: 5px;
+    background: #eee;
+    margin-bottom: 20px;
+    width: 800px;
+
+}
+.out2{
+    border-radius: 5px;
+    background: #ffffff;
+    margin-bottom: 20px;
+    width: 800px;
+
+}
+.out1 p{
+    font-size: medium;
+    margin: 10px;
+    color: black;
 }
 .inttvv2{
     display: flex;
@@ -8,7 +28,11 @@
     flex-wrap: wrap;
     align-items: flex-end;
 }
-
+.inttvv2 p{
+    font-size: medium;
+    margin: 10px;
+    color: black;
+}
 
 .tilessty {
     

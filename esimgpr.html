@@ -121,19 +121,64 @@
             <section class="topics-detail-section" id="topics-detail" style="padding-top: 30px;">
                 <div class="container">
                     <div class="row">
+                        <div class="inttvv">
+                            <a href="javascript:insertimg(0)"><img name="esimg" id="img1" src="images/rose.jpg" width="100" height="100"></a>
+                            <a href="javascript:insertimg(1)"><img name="esimg" id="img2" src="images/tm_esplot.jpg" width="100" height="100"></a>
+                            <a href="javascript:insertimg(2)"><img name="esimg" id="img3" src="images/tm_piano.jpg" width="100" height="100"></a>
+                            <a href="javascript:insertimg(3)"><img name="esimg" id="img4" src="images/tm_esrealtime.jpg" width="100" height="100"></a>
+                            <p id="pforsee"></p>
+                        </div>
                         <div class="interlvl1">
                             <canvas class="canvascl" width="500" height="500" id="ehsanimgpr"></canvas>
                         </div>
                     </div>
                     <div class="row">
-                        
-                        <div id="dv1" class="intersetclr">
-                            <p></p>
+                        <div class="inttvv">
+                            <div id="dv1" class="intersetclr">
+                                <p></p>
+                            </div>
+                            <div id="dv2" class="intersetclr">
+                                
+                            </div>
                         </div>
-                        <div id="dv2" class="intersetclr">
-                            
+                        <div class="inttvv2">
+                            <div class="input-group mb-3">
+                                <input id="bynum" type="text" class="form-control" placeholder="Number between 0 to 255" name="bnn">
+                                <span class="input-group-text">0 ~ 255</span>
+                            </div>
+                            <div class="inttvv3">
+                                <form>
+                                    <div class="form-check">
+                                      <input type="radio" class="form-check-input" id="radio1" name="optradio" value="o1" checked>
+                                      <label class="form-check-label" for="radio1">Red Byte</label>
+                                    </div>
+                                    <div class="form-check">
+                                      <input type="radio" class="form-check-input" id="radio2" name="optradio" value="o2">
+                                      <label class="form-check-label" for="radio2">Green Byte</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input type="radio" class="form-check-input" id="radio3" name="optradio" value="o3">
+                                        <label class="form-check-label" for="radio3">Blue Byte</label>
+                                      </div>
+                                    
+                                  </form>
+                            </div>
+                            <button id="startbtn" class="btn btn-warning" onclick="checksomthingcolor()">Search</button>
                         </div>
 
+  
+                        <div class="inttvv4">
+                            <div >
+                                <p>
+                                    Result:
+                                </p>
+                                <p id="dv3">Click search button</p>
+                            </div>
+                        </div>
+                        <div class="inttvv4">
+                            <input id="changenum" type="text" class="form-control" name="vhnn">
+                            <button id="changebtn" class="btn btn-success" onclick="changesomthingcolor()">Change</button>
+                        </div>
                     </div>
                 </div>
             </section>

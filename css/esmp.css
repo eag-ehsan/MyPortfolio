@@ -1,5 +1,77 @@
 .bigdiv{
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
+  width: auto;
+  align-items: center
+}
+.bigdivo{
+  display: flex;
+  flex-direction: column;
+  
+}
+hr.new1 {
+    border-top: 1px solid rgb(3, 112, 52);
+  }
+  
+  /* Dashed red border */
+  hr.new2 {
     
+    border-width: 4px;
+    border-color: rgb(42 110 138);
+    border-style:double;
+    margin: 2px;
+    opacity: .7;
+  }
+  
+  /* Dotted red border */
+  hr.new3 {
+    border-top: 1px dotted rgb(7, 110, 110);
+  }
+  
+  /* Thick red border */
+  hr.new4 {
+    border: 1px solid rgb(76, 9, 139);
+  }
+  
+  /* Large rounded green border */
+  hr.new5 {
+    border: 10px solid rgb(9, 135, 167);
+    border-radius: 5px;
+  }
+  .canvascl{
+    border-style:double;
+    border-radius: 5px;
+    border-width: 4px;
+    border-color: rgb(42 110 138);
+    width: 1000px;
+    height: 650px;
+  }
+  .mytoolb{
+    display: flex;
+  }
+  .mybtn {
+    /*border: 2px solid rgb(76, 9, 139);*/
+    
+    padding: 8;
+    font-size: 25px;
+    
+    background-image: linear-gradient(15deg, #1d6081 0%, #5da8ae 100%);
+    border-radius: 3px;
+    margin: 1px;
+    width: 45px;
+    height: 45px;
+    margin-bottom: 3px;
+  }
+  .interlvl1{
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+
+}
+.interlvl1 p{
+  color: rgb(9, 135, 167);
+  font-size: 15px;
+    padding-top: 8px;
+    padding-left: 3px;
+
 }

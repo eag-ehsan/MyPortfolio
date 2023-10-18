@@ -120,12 +120,7 @@ function SetNextPoint(a,r,k,t) {
 
 
   
-// DrawAxes draws the X ad Y axes, with tick marks.
 
-
-// When rendering, XSTEP determines the horizontal distance between points:
-
-// RenderFunction(f) renders the input funtion f on the canvas.
 function RenderFunction(f) {
 	var first = true;
 	var a = document.getElementById("zariba").value;

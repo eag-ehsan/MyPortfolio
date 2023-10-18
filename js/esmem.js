@@ -196,6 +196,10 @@ document.addEventListener('DOMContentLoaded', () => {
             img: 'images/sm-mango.png'
         },
         {
+            name: 'mango',
+            img: 'images/sm-mango.png'
+        },
+        {
             name: 'orange',
             img: 'images/sm-orange.png'
         },
@@ -284,8 +288,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const urscore = document.getElementById('urscore')
     let tiledelect = []
     let tiledelectId = []
-    let wintile = []
-    var alllightsnumber = 25;
+    let wintile = 0;
+    var alllightsnumber = 40;
     var numberoflights = 0;
     function addlights()
     {
@@ -296,8 +300,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
             imglight.setAttribute('src', 'images/lightoff.png')
             
-            imglight.setAttribute('width', 30)
-            imglight.setAttribute('height', 30)
+            imglight.setAttribute('width', 20)
+            imglight.setAttribute('height', 20)
             
             out2id.appendChild(imglight)
         }
@@ -323,7 +327,7 @@ document.addEventListener('DOMContentLoaded', () => {
         
     }
     function lvl1create() {
-        numberoflights = 5;
+        numberoflights = 20;
         var itmp = 0;
         var ltmp = 0;
         var toptmp = '';
@@ -411,7 +415,7 @@ document.addEventListener('DOMContentLoaded', () => {
             divtile.classList.add("click")
             divtile.setAttribute('id', 'divtile' + i)
             divtile.setAttribute('data-id', i)
-            divtile.addEventListener('click', tilesflip2)
+            divtile.addEventListener('click', tilesflip)
             divtile.setAttribute('width', hightwidth)
             divtile.setAttribute('height', hightwidth)
             itmp = Math.floor(i/5)
@@ -470,7 +474,7 @@ document.addEventListener('DOMContentLoaded', () => {
         var ltmp = 0;
         var toptmp = '';
         var lefttmp = '';
-        inttvv.setAttribute('style','width: 800px; height: 450px');
+        inttvv.setAttribute('style','width: 800px; height: 550px');
         
         
         
@@ -482,7 +486,7 @@ document.addEventListener('DOMContentLoaded', () => {
             divtile.classList.add("click")
             divtile.setAttribute('id', 'divtile' + i)
             divtile.setAttribute('data-id', i)
-            divtile.addEventListener('click', tilesflip3)
+            divtile.addEventListener('click', tilesflip)
             divtile.setAttribute('width', hightwidth)
             divtile.setAttribute('height', hightwidth)
             itmp = Math.floor(i/8)
@@ -535,37 +539,23 @@ document.addEventListener('DOMContentLoaded', () => {
 
         }
     }
-    function tilesflip2() {
-        let idtile = this.getAttribute('data-id');
-        tiledelect.push(lvl2arr[idtile].name);
-        tiledelectId.push(idtile);
-        if (this.classList.contains("flip")) {
-            this.classList.remove("flip")
-        }
-        else {
-            this.classList.add("flip")
-        }
-        if (tiledelect.length === 2) {
-            setTimeout(checktiles, 500);
-        }
-    }
-    function tilesflip3() {
-        let idtile = this.getAttribute('data-id');
-        tiledelect.push(lvl3arr[idtile].name);
-        tiledelectId.push(idtile);
-        if (this.classList.contains("flip")) {
-            this.classList.remove("flip")
-        }
-        else {
-            this.classList.add("flip")
-        }
-        if (tiledelect.length === 2) {
-            setTimeout(checktiles, 500);
-        }
-    }
+    
     function tilesflip() {
         let idtile = this.getAttribute('data-id');
-        tiledelect.push(lvl1arr[idtile].name);
+        if(currentlvl==1)
+        {
+            tiledelect.push(lvl1arr[idtile].name);
+        }else if(currentlvl==2)
+        {
+            tiledelect.push(lvl2arr[idtile].name);
+        }else if(currentlvl==3)
+        {
+            tiledelect.push(lvl3arr[idtile].name);
+        }else
+        {
+
+        }
+        
         tiledelectId.push(idtile);
         if (this.classList.contains("flip")) {
             this.classList.remove("flip")
@@ -595,7 +585,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 tiless1.removeEventListener('click', tilesflip);
                 tiless2.removeEventListener('click', tilesflip);
                 numberoflights++;
-                wintile.push(tiledelect)
+                wintile++;
             } else {
                 numberoflights--;
                 if (tiless1.classList.contains("flip")) {
@@ -617,22 +607,22 @@ document.addEventListener('DOMContentLoaded', () => {
         onlights()
         tiledelect = []
         tiledelectId = []
-        urscore.innerHTML = "Score:" + wintile.length + " Life: " +  numberoflights;
+        urscore.innerHTML = "Score:" + wintile + " Life: " +  numberoflights;
         if(currentlvl==1)
         {
-            if (wintile.length === lvl1arr.length / 2) {
+            if (wintile == 4) {
                 urscore.innerHTML = 'Nice Job, Level1 is done'
                 gotolvl2();
             }
         }else if(currentlvl==2)
         {
-            if (wintile.length === lvl2arr.length / 2) {
+            if (wintile == 14) {
                 urscore.innerHTML = 'Nice Job, Level2 is done'
                 gotolvl3();
             }
         }else if(currentlvl==3)
         {
-            if (wintile.length === lvl3arr.length / 2) {
+            if (wintile == 34) {
                 urscore.innerHTML = 'Nice Job, Level3 is done'
                 
             }
@@ -647,9 +637,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function resetgame()
     {
-        alert("Game over. Game will be reset for another try")
+        
         urscore.innerHTML = 'Game Over. try again';
-        wintile = [];
+        wintile = 0;
         while (esmemlvl.firstChild) {
             esmemlvl.removeChild(esmemlvl.lastChild);
           }
@@ -657,22 +647,23 @@ document.addEventListener('DOMContentLoaded', () => {
             out2id.removeChild(out2id.lastChild);
           }
 
-
+          currentlvl = 1;
+          setTimeout(alert("Game over. Game will be reset for another try"), 500);
         lvl1arr.sort(() => 0.5 - Math.random())
         lvl1create();
     }
     function gotolvl2()
     {
         currentlvl = 2;
-        alert("Nice try, Level 2 is starting now. get ready")
-        urscore.innerHTML = "Score:" + wintile.length + " Life: " +  numberoflights
+        
+        urscore.innerHTML = "Score:" + wintile + " Life: " +  numberoflights
         
         while (esmemlvl.firstChild) {
             esmemlvl.removeChild(esmemlvl.lastChild);
           }
           
-
-
+        setTimeout(alert("Nice try, Level 2 is starting now. get ready"), 500);
+        
         lvl2arr.sort(() => 0.5 - Math.random())
         lvl2create();
 
@@ -680,15 +671,15 @@ document.addEventListener('DOMContentLoaded', () => {
     function gotolvl3()
     {
         currentlvl = 3;
-        alert("Nice try, Level 3 is starting now. get ready")
-        urscore.innerHTML = "Score:" + wintile.length + " Life: " +  numberoflights
+        
+        urscore.innerHTML = "Score:" + wintile + " Life: " +  numberoflights
         
         while (esmemlvl.firstChild) {
             esmemlvl.removeChild(esmemlvl.lastChild);
           }
           
 
-
+          setTimeout(alert("Nice try, Level 3 is starting now. get ready"), 500);
         lvl3arr.sort(() => 0.5 - Math.random())
         lvl3create();
 

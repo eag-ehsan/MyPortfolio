@@ -7,6 +7,7 @@ var py = [];
 var cx = [];
 var cy = [];
 var tmpval = [];
+var whichpen = 0;
 const btall = document.getElementsByName('btnm');
 
 const canvas = document.getElementById('esmpcan');
@@ -50,10 +51,12 @@ function btclicked() {
     }
     document.getElementById("exporttxt").innerHTML = idbt;
 
+    whichpen = idbt;
     if (idbt == 0) {
         rasplvl = 1;
         changemousecur(pen1);
         ctx.lineWidth = 1;
+        
     }else if (idbt == 1) {
         rasplvl = 1;
         changemousecur(pen11);
@@ -74,6 +77,7 @@ function btclicked() {
 }
 function chngcanvascolor() {
     ctx.strokeStyle = escolor.value;
+    ctx.fillStyle = escolor.value;
 }
 function changemousecur(x) {
     var urrr = 'url(' + x.src + ')';
@@ -111,10 +115,24 @@ function draw(e) {
         cx[0] = e.offsetX
         cy[0] = e.offsetY
 
-        ctx.beginPath()
+        if(whichpen==3)
+        {
+            ctx.beginPath()
+            
+            ctx.moveTo(px[0], py[0]);
+            ctx.lineTo(cx[0], cy[0])
+            
+            ctx.fill();
+            ctx.stroke();
+    
+        }else{
+            ctx.beginPath()
         ctx.moveTo(px[0], py[0]);
         ctx.lineTo(cx[0], cy[0]);
         ctx.stroke();
+
+        }
+        
 
         px[0] = cx[0]
         py[0] = cy[0]

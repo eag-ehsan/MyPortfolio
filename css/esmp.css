@@ -2,49 +2,23 @@
   display: flex;
   flex-direction: column;
   width: auto;
-  align-items: center
+  align-items: center;
+  height:780px;
+  
 }
 .bigdivo{
   display: flex;
   flex-direction: column;
   
 }
-hr.new1 {
-    border-top: 1px solid rgb(3, 112, 52);
-  }
-  
-  /* Dashed red border */
-  hr.new2 {
-    
-    border-width: 4px;
-    border-color: rgb(42 110 138);
-    border-style:double;
-    margin: 2px;
-    opacity: .7;
-  }
-  
-  /* Dotted red border */
-  hr.new3 {
-    border-top: 1px dotted rgb(7, 110, 110);
-  }
-  
-  /* Thick red border */
-  hr.new4 {
-    border: 1px solid rgb(76, 9, 139);
-  }
-  
-  /* Large rounded green border */
-  hr.new5 {
-    border: 10px solid rgb(9, 135, 167);
-    border-radius: 5px;
-  }
+
   .canvascl{
-    border-style:double;
+    border-style:solid;
     border-radius: 5px;
-    border-width: 4px;
+    border-width: 1px;
     border-color: rgb(42 110 138);
     width: 1000px;
-    height: 650px;
+    height: 600px;
   }
   .mytoolb{
     display: flex;

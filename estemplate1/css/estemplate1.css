@@ -3,6 +3,8 @@
 :root {
     --hextiles-color:                  #ffc400;
     --hextiles-color-hover:            #ff7300;
+    --hextiles-color-1:            #ff7300;
+    --hextiles-color-2:            #fbff00;
     
     --hextiles-sides-bt:                 30px;
     --hextiles-sides-btm:               -30px;
@@ -45,6 +47,9 @@
     border-right: var(--hextiles-sides-lr) solid transparent;
 
 }
+
+
+
 
 
 .eshextilesclass:hover{

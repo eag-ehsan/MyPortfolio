@@ -7,6 +7,7 @@ var py = [];
 var cx = [];
 var cy = [];
 var tmpval = [];
+var linwidval=0;
 var whichpen = 0;
 const btall = document.getElementsByName('btnm');
 
@@ -36,8 +37,7 @@ for (i = 0; i < btall.length; i++) {
 
 function btclicked() {
     let idbt = this.getAttribute('data-id');
-    if (idbt == 5)
-    {
+    if (idbt == 5) {
         clearall();
         return;
     }
@@ -55,24 +55,25 @@ function btclicked() {
     if (idbt == 0) {
         rasplvl = 1;
         changemousecur(pen1);
-        ctx.lineWidth = 1;
+        linwidval =1;
         
-    }else if (idbt == 1) {
+
+    } else if (idbt == 1) {
         rasplvl = 1;
         changemousecur(pen11);
-        ctx.lineWidth = 3;
-    }else if (idbt == 2) {
+        linwidval = 3;
+    } else if (idbt == 2) {
         rasplvl = 1;
         changemousecur(pen2);
-        ctx.lineWidth = 5;
-    }else if (idbt == 3) {
+        linwidval = 5;
+    } else if (idbt == 3) {
         rasplvl = 1;
         changemousecur(pen22);
-        ctx.lineWidth = 7;
-    }else if (idbt == 4) {
+        linwidval = 7;
+    } else if (idbt == 4) {
         changemousecur(RASP);
         rasplvl = 4;
-    } 
+    }
 
 }
 function chngcanvascolor() {
@@ -105,35 +106,20 @@ canvas.addEventListener('mousemove', draw);
 function draw(e) {
     let bounds = canvas.getBoundingClientRect()
     if (rasplvl == 1) {
-        
+
         if (px[0] == null || py[0] == null || !isdraw) {
             px[0] = e.offsetX
             py[0] = e.offsetY
             return
         }
-
+        ctx.lineWidth = linwidval;
         cx[0] = e.offsetX
         cy[0] = e.offsetY
-
-        if(whichpen==3)
-        {
-            ctx.beginPath()
-            
-            ctx.moveTo(px[0], py[0]);
-            ctx.lineTo(cx[0], cy[0])
-            
-            ctx.fill();
-            ctx.stroke();
-    
-        }else{
-            ctx.beginPath()
-        ctx.moveTo(px[0], py[0]);
-        ctx.lineTo(cx[0], cy[0]);
+        ctx.beginPath()
+        ctx.arc(px[0], py[0], 0, 0, 2 * Math.PI);
+        ctx.arc(cx[0], cy[0], 0, 0, 2 * Math.PI)
+        ctx.fill();
         ctx.stroke();
-
-        }
-        
-
         px[0] = cx[0]
         py[0] = cy[0]
 
@@ -167,9 +153,11 @@ function draw(e) {
         cy[3] = tmpval[1];
 
         for (i = 0; i < 4; i++) {
+            ctx.lineWidth = linwidval;
             ctx.beginPath()
-            ctx.moveTo(px[i], py[i]);
-            ctx.lineTo(cx[i], cy[i]);
+            ctx.arc(px[i], py[i], 0, 0, 2 * Math.PI);
+            ctx.arc(cx[i], cy[i], 0, 0, 2 * Math.PI)
+            ctx.fill();
             ctx.stroke();
 
             px[i] = cx[i];

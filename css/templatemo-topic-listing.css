@@ -32,7 +32,7 @@ https://templatemo.com/tm-590-topic-listing
   --h6-font-size:                 22px;
   --p-font-size:                  20px;
   --menu-font-size:               14px;
-  --btn-font-size:                18px;
+  --btn-font-size:                14px;
   --copyright-font-size:          16px;
 
   --border-radius-large:          100px;
@@ -218,7 +218,7 @@ strong {
   font-weight: var(--font-weight-semibold);
   line-height: normal;
   transition: all 0.3s;
-  padding: 10px 20px;
+  /*padding: 10px 20px;*/
 }
 
 .custom-btn:hover {

@@ -1,5 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
 
+    var enablecheat = 0;
     var currentlvl = 1;
     var hightwidth = 0;
     const lvl1arr = [
@@ -527,7 +528,8 @@ document.addEventListener('DOMContentLoaded', () => {
    lvl1arr.sort(() => 0.5 - Math.random())
     const inttvv = document.getElementById('inttvv')
     const out2id = document.getElementById('out2id')
-    const esmemlvl = document.getElementById('esmemlvl')
+    const esmemlvl = document.getElementById('esmemlvl');
+    const escheat = document.getElementById('escheat');
     const urscore = document.getElementById('urscore')
     let tiledelect = []
     let tiledelectId = []
@@ -782,8 +784,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
         }
-    }
-    
+    }   
     function lvl4create() {
         hightwidth = 80;
         var itmp = 0;
@@ -839,7 +840,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const tilefront = document.createElement('img')
             const tileback = document.createElement('img')
             tilefront.setAttribute('src', 'images/sm-blank.png')
-            tileback.setAttribute('src', lvl3arr[i].img)
+            tileback.setAttribute('src', lvl4arr[i].img)
             tilefront.setAttribute('data-id', i)
             tileback.setAttribute('data-id', i)
             tilefront.setAttribute('width', hightwidth)
@@ -855,7 +856,127 @@ document.addEventListener('DOMContentLoaded', () => {
 
         }
     }
-    
+    function lvl4cheat() {
+        hightwidth = 80;
+        var itmp = 0;
+        var ltmp = 0;
+        var toptmp = '';
+        var lefttmp = '';
+        inttvv.setAttribute('style','width: 800px; height: 510px');
+        
+        
+        
+        onlights()
+        for (let i = 0; i < 60; i++) {
+
+            const divtile = document.createElement('div')
+            divtile.classList.add("tilessty")
+            divtile.classList.add("click")
+            divtile.setAttribute('id', 'divcheat' + i)
+            divtile.setAttribute('data-id', i)
+            divtile.addEventListener('click', tilesflip)
+            divtile.setAttribute('width', hightwidth)
+            divtile.setAttribute('height', hightwidth)
+            itmp = Math.floor(i/10)
+            ltmp = (hightwidth*i) - (itmp*hightwidth*10)
+            toptmp = 'top: ' + hightwidth*itmp + 'px';
+            lefttmp = 'left: ' + ltmp + 'px';
+            divtile.setAttribute('style', toptmp + '; ' + lefttmp)
+            
+            escheat.appendChild(divtile)
+
+            const divfront = document.createElement('div')
+            divfront.classList.add("front")
+            divfront.setAttribute('id', 'frontcheat' + i)
+            divfront.setAttribute('data-id', i)
+            
+
+
+
+            const divmom = document.querySelector('#divcheat' + i)
+            divfront.setAttribute('width', hightwidth)
+            divfront.setAttribute('height', hightwidth)
+            
+            divmom.appendChild(divfront)
+           
+
+
+            frontmom = document.querySelector('#frontcheat' + i)
+            const tilefront = document.createElement('img')
+            tilefront.setAttribute('src', lvl4arr[i].img)
+            tilefront.setAttribute('data-id', i)
+            tilefront.setAttribute('width', hightwidth)
+            tilefront.setAttribute('height', hightwidth)
+            frontmom.appendChild(tilefront)
+            
+
+
+
+
+
+        }
+    }
+    function lvl3cheat() {
+        hightwidth = 100;
+        var itmp = 0;
+        var ltmp = 0;
+        var toptmp = '';
+        var lefttmp = '';
+        inttvv.setAttribute('style','width: 800px; height: 510px');
+        
+        
+        
+        onlights()
+        for (let i = 0; i < 40; i++) {
+
+            const divtile = document.createElement('div')
+            divtile.classList.add("tilessty")
+            divtile.classList.add("click")
+            divtile.setAttribute('id', 'divcheat' + i)
+            divtile.setAttribute('data-id', i)
+            divtile.addEventListener('click', tilesflip)
+            divtile.setAttribute('width', hightwidth)
+            divtile.setAttribute('height', hightwidth)
+            itmp = Math.floor(i/8)
+            ltmp = (hightwidth*i) - (itmp*hightwidth*8)
+            toptmp = 'top: ' + hightwidth*itmp + 'px';
+            lefttmp = 'left: ' + ltmp + 'px';
+            divtile.setAttribute('style', toptmp + '; ' + lefttmp)
+            
+            escheat.appendChild(divtile)
+
+            const divfront = document.createElement('div')
+            divfront.classList.add("front")
+            divfront.setAttribute('id', 'frontcheat' + i)
+            divfront.setAttribute('data-id', i)
+            
+
+
+
+            const divmom = document.querySelector('#divcheat' + i)
+            divfront.setAttribute('width', hightwidth)
+            divfront.setAttribute('height', hightwidth)
+            
+            divmom.appendChild(divfront)
+           
+
+
+            frontmom = document.querySelector('#frontcheat' + i)
+            const tilefront = document.createElement('img')
+            tilefront.setAttribute('src', lvl3arr[i].img)
+            tilefront.setAttribute('data-id', i)
+            tilefront.setAttribute('width', hightwidth)
+            tilefront.setAttribute('height', hightwidth)
+            frontmom.appendChild(tilefront)
+            
+
+
+
+
+
+        }
+    }
+   
     function tilesflip() {
         let idtile = this.getAttribute('data-id');
         if(currentlvl==1)
@@ -883,7 +1004,7 @@ document.addEventListener('DOMContentLoaded', () => {
             this.classList.add("flip")
         }
         if (tiledelect.length === 2) {
-            setTimeout(checktiles, 500);
+            setTimeout(checktiles, 400);
         }
     }
     
@@ -947,7 +1068,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }else if(currentlvl==4)
         {
-            if (wintile == 44) {
+            if (wintile == 64) {
                 urscore.innerHTML = 'Nice Job, Level4 is done'
                 
             }
@@ -971,7 +1092,13 @@ document.addEventListener('DOMContentLoaded', () => {
           while (out2id.firstChild) {
             out2id.removeChild(out2id.lastChild);
           }
-
+          if(enablecheat==1)
+          {
+            while (escheat.firstChild) {
+                escheat.removeChild(escheat.lastChild);
+              }
+          }
+  
           currentlvl = 1;
           setTimeout(alert("Game over. Game will be reset for another try"), 500);
         lvl1arr.sort(() => 0.5 - Math.random())
@@ -1007,6 +1134,13 @@ document.addEventListener('DOMContentLoaded', () => {
           setTimeout(alert("Nice try, Level 3 is starting now. get ready"), 500);
         lvl3arr.sort(() => 0.5 - Math.random())
         lvl3create();
+        if(enablecheat==1)
+        { 
+            while (escheat.firstChild) {
+            escheat.removeChild(escheat.lastChild);
+          }
+            lvl3cheat();
+        }
 
     }
     function gotolvl4()
@@ -1023,6 +1157,13 @@ document.addEventListener('DOMContentLoaded', () => {
           setTimeout(alert("Nice try, Level 4 is starting now. get ready"), 500);
         lvl4arr.sort(() => 0.5 - Math.random())
         lvl4create();
+        if(enablecheat==1)
+        {
+            while (escheat.firstChild) {
+                escheat.removeChild(escheat.lastChild);
+              }
+            lvl4cheat();
+        }
 
     }
 

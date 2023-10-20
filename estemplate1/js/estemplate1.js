@@ -7,14 +7,20 @@
 //###########################################################
 //###########################################################
 
-
+const numberOfHexagonsOnWidthid = document.getElementById('numberOfHexagonsOnWidthid');
 //-------- Base params --------------------------------------
 var numberOfScrollPages = 3;
-var numberOfHexagonsOnWidth = 12;
+var numberOfHexagonsOnWidth = numberOfHexagonsOnWidthid.value;
 //-----------------------------------------------------------
 var sideOfHwxagon = Math.floor(window.innerWidth / numberOfHexagonsOnWidth);
 if (sideOfHwxagon % 2 == 1) { sideOfHwxagon += 1; }
 const esmain = document.getElementById('esmain');
+const colorOfHexagonsid = document.getElementById('colorOfHexagonsid');
+var color1forhexa = colorOfHexagonsid.value;
+const colorOfHoverid = document.getElementById('colorOfHoverid');
+var color1forhover = colorOfHoverid.value;
+const colorOfBgid = document.getElementById('colorOfBgid');
+var color1bg = colorOfBgid.value;
 var eshextiles = null;
 var tiles_top_offset = 0, i = 0, j = 0, t_top = 0, t_left = 0, t_gap_top = 0;
 var t_gap_left = 0, tiles_top = 0, tiles_left = 0, es_w = 0, es_h = 0;
@@ -22,7 +28,7 @@ var es_hexagon_row_numbers = 0, es_hexagon_col_numbers = 0;
 var tiles_top_gap = 0, tiles_left_gap = 0;
 
 
-function esEditStyleOnHead(styleID, csstxt) {
+function esAppendStyleOnHead(styleID, csstxt) {
     var sElem = document.getElementById(styleID);
     var eElemInnerHtml = null;
     if (sElem) {
@@ -36,13 +42,27 @@ function esEditStyleOnHead(styleID, csstxt) {
     sElem.innerHTML = eElemInnerHtml + '\n' + csstxt;
     document.getElementsByTagName('head')[0].appendChild(sElem);
 }
+function esResetToStyleOnHead(styleID, csstxt) {
+    var sElem = document.getElementById(styleID);
+    var eElemInnerHtml = null;
+    if (sElem) {
+        document.getElementsByTagName('head')[0].removeChild(sElem);
+    }
+
+    sElem = document.createElement('style');
+    sElem.type = 'text/css';
+    sElem.id = styleID;
+    sElem.innerHTML = csstxt;
+    document.getElementsByTagName('head')[0].appendChild(sElem);
+}
+
 function esAddBodyColortoStyle(color1)
 {
     var csstxt = "" +
     "	 body{                                                                    \n" +
-    "	 	background: #" + color1 + ";                                          \n" +
+    "	 	background: " + color1 + ";                                           \n" +
     "	 }                                                                        \n";
-    esEditStyleOnHead('styleFillFromCode', csstxt);
+    esResetToStyleOnHead('styleFillFromCodeForBody', csstxt);
 
 }
 function esCreatAllStyleClasses(clsname, sbt, sbtm, sw, sh, slr, color1, color2) {
@@ -50,7 +70,7 @@ function esCreatAllStyleClasses(clsname, sbt, sbtm, sw, sh, slr, color1, color2)
     "." + clsname + ":before{                                                     \n" +
     "        content: '';                                                         \n" +
     "        width: 0; height: 0;                                                 \n" +
-    "        border-bottom: " + sbt + "px solid #" + color1 + ";                  \n" +
+    "        border-bottom: " + sbt + "px solid " + color1 + ";                   \n" +
     "        border-left: " + slr + "px solid transparent;                        \n" +
     "        border-right: " + slr + "px solid transparent;                       \n" +
     "        position: absolute;                                                  \n" +
@@ -61,8 +81,13 @@ function esCreatAllStyleClasses(clsname, sbt, sbtm, sw, sh, slr, color1, color2)
     "        margin-top: " + sbt + "px;                                           \n" +
     "        width: " + sw + "px;                                                 \n" +
     "        height: " + sh + "px;                                                \n" +
-    "        background-color: #" + color1 + ";                                   \n" +
+    "        background-color: " + color1 + ";                                    \n" +
     "        position:absolute;                                                   \n" +
+    "        display: flex;                                                       \n" +
+    "        flex-wrap: wrap;                                                     \n" +
+    "        align-content: center;                                               \n" +
+    "        justify-content: center;                                             \n" +
+    "        color: #d7ffe0;                                                      \n" +
     "    }                                                                        \n" +
     "                                                                             \n" +
     "    ." + clsname + ":after{                                                  \n" +
@@ -70,23 +95,23 @@ function esCreatAllStyleClasses(clsname, sbt, sbtm, sw, sh, slr, color1, color2)
     "        width: 0;                                                            \n" +
     "        position: absolute;                                                  \n" +
     "        bottom: " + sbtm + "px;                                              \n" +
-    "        border-top: " + sbt + "px solid #" + color1 + ";                     \n" +
+    "        border-top: " + sbt + "px solid " + color1 + ";                      \n" +
     "        border-left: " + slr + "px solid transparent;                        \n" +
     "        border-right: " + slr + "px solid transparent;                       \n" +
     "                                                                             \n" +
     "    }                                                                        \n" +
     "	 ." + clsname + ":hover{                                                  \n" +
-    "	 	background-color: #" + color2 + ";                                    \n" +
+    "	 	background-color: " + color2 + ";                                     \n" +
     "	 }                                                                        \n" +
     "	 ." + clsname + ":hover::before{                                          \n" +
     "	 	                                                                      \n" +
-    "	 	border-bottom: " + sbt + "px solid #" + color2 + ";                   \n" +
+    "	 	border-bottom: " + sbt + "px solid " + color2 + ";                    \n" +
     "	 }                                                                        \n" +
     "	 ." + clsname + ":hover::after{                                           \n" +
     "	 	                                                                      \n" +
-    "	 	border-top: " + sbt + "px solid #" + color2 + ";                      \n" +
+    "	 	border-top: " + sbt + "px solid " + color2 + ";                       \n" +
     "	 	}                                                                     \n";
-    esEditStyleOnHead('styleFillFromCode', csstxt);
+    esResetToStyleOnHead('styleFillFromCode', csstxt);
 }
 function hexToRGB(hexString) {
     var color = [];
@@ -172,8 +197,8 @@ function creatHexagons() {
     var local_sw = Math.floor(tiles_left * 2);
     var local_sh = sideOfHwxagon;
     var local_slr = Math.floor(tiles_left);
-    esCreatAllStyleClasses('eshextilesclass', local_sbt, local_sbtm, local_sw, local_sh, local_slr, 'e39000', 'ffc400');
-    esAddBodyColortoStyle('3d0301');
+    esCreatAllStyleClasses('eshextilesclass', local_sbt, local_sbtm, local_sw, local_sh, local_slr, color1forhexa, color1forhover);
+    esAddBodyColortoStyle(color1bg);
     for (j = -1; j < es_hexagon_row_numbers; j++) {
         if (j % 2 == 0) {
             tiles_top_offset = tiles_top_gap;
@@ -213,30 +238,30 @@ function creatHexagons() {
 
     }
 
-    /*
+    
         $(".eshextilesclass").hover(function () {
     
     
     
-            $(this).text($(this).attr("id"));
+            
         },
     
             function () {
     
     
     
-                $(this).text("");
+                $(this).removeClass('rotate');
             }
     
         );
     
-    */
+    
 
     $(".eshextilesclass").click(function () {
 
 
-
-        $(this).text($(this).attr("id"));
+        $(this).text($(this).attr('id'));
+        $(this).addClass('rotate');
     });
 
 
@@ -245,7 +270,15 @@ function creatHexagons() {
 }
 creatHexagons();
 
-window.addEventListener('resize', creatHexagons);
+function applychanges()
+{
+    numberOfHexagonsOnWidth = numberOfHexagonsOnWidthid.value;
+    color1forhexa = colorOfHexagonsid.value;
+    color1forhover = colorOfHoverid.value;
+    color1bg = colorOfBgid.value;
+    creatHexagons();
+}
+window.addEventListener('resize', applychanges);
 
 $(document).ready(function () {
 

@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
 
     var currentlvl = 1;
-    var hightwidth = 100;
+    var hightwidth = 0;
     const lvl1arr = [
         {
             name: 'aloo',
@@ -281,7 +281,250 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
     ]
-    lvl1arr.sort(() => 0.5 - Math.random())
+    const lvl4arr = [
+        {
+            name: 'aloo',
+            img: 'images/sm-aloo.png'
+        },
+        {
+            name: 'berry',
+            img: 'images/sm-berry.png'
+        },
+        {
+            name: 'lino2',
+            img: 'images/sm-lino2.png'
+        },
+        {
+            name: 'straw1',
+            img: 'images/sm-straw1.png'
+        },
+        {
+            name: 'aloo',
+            img: 'images/sm-aloo.png'
+        },
+        {
+            name: 'berry',
+            img: 'images/sm-berry.png'
+        },
+        {
+            name: 'lino2',
+            img: 'images/sm-lino2.png'
+        },
+        {
+            name: 'straw1',
+            img: 'images/sm-straw1.png'
+        },
+        {
+            name: 'cofee',
+            img: 'images/sm-cofee.png'
+        },
+        {
+            name: 'cofee',
+            img: 'images/sm-cofee.png'
+        },
+        {
+            name: 'hamb',
+            img: 'images/sm-hamb.png'
+        },
+        {
+            name: 'hamb',
+            img: 'images/sm-hamb.png'
+        },
+        {
+            name: 'iccr',
+            img: 'images/sm-iccr.png'
+        },
+        {
+            name: 'iccr',
+            img: 'images/sm-iccr.png'
+        },
+        {
+            name: 'kahoo',
+            img: 'images/sm-kahoo.png'
+        },
+        {
+            name: 'kahoo',
+            img: 'images/sm-kahoo.png'
+        },
+        {
+            name: 'limo',
+            img: 'images/sm-limo.png'
+        },
+        {
+            name: 'limo',
+            img: 'images/sm-limo.png'
+        },
+        {
+            name: 'mango',
+            img: 'images/sm-mango.png'
+        },
+        {
+            name: 'mango',
+            img: 'images/sm-mango.png'
+        },
+        {
+            name: 'orange',
+            img: 'images/sm-orange.png'
+        },
+        {
+            name: 'orange',
+            img: 'images/sm-orange.png'
+        },
+        {
+            name: 'pear',
+            img: 'images/sm-pear.png'
+        },
+        {
+            name: 'pear',
+            img: 'images/sm-pear.png'
+        },
+        {
+            name: 'pizza',
+            img: 'images/sm-pizza.png'
+        },
+        {
+            name: 'pizza',
+            img: 'images/sm-pizza.png'
+        },
+        {
+            name: 'pomeg',
+            img: 'images/sm-pomeg.png'
+        },
+        {
+            name: 'pomeg',
+            img: 'images/sm-pomeg.png'
+        },
+        {
+            name: 'cake',
+            img: 'images/sm-cake.png'
+        },
+        {
+            name: 'cake',
+            img: 'images/sm-cake.png'
+        },
+        {
+            name: 'eggp',
+            img: 'images/sm-eggp.png'
+        },
+        {
+            name: 'eggp',
+            img: 'images/sm-eggp.png'
+        },
+        {
+            name: 'java',
+            img: 'images/sm-java.png'
+        },
+        {
+            name: 'java',
+            img: 'images/sm-java.png'
+        },
+        {
+            name: 'tomat',
+            img: 'images/sm-tomat.png'
+        },
+        {
+            name: 'tomat',
+            img: 'images/sm-tomat.png'
+        },
+        {
+            name: 'grap',
+            img: 'images/sm-grap.png'
+        },
+        {
+            name: 'grap',
+            img: 'images/sm-grap.png'
+        },
+        {
+            name: 'angoo',
+            img: 'images/sm-angoo.png'
+        },
+        {
+            name: 'angoo',
+            img: 'images/sm-angoo.png'
+        },
+        {
+            name: 'appel',
+            img: 'images/sm-appel.png'
+        },
+        {
+            name: 'appel',
+            img: 'images/sm-appel.png'
+        },
+        {
+            name: 'banan',
+            img: 'images/sm-banan.png'
+        },
+        {
+            name: 'banan',
+            img: 'images/sm-banan.png'
+        },
+        {
+            name: 'bear',
+            img: 'images/sm-bear.png'
+        },
+        {
+            name: 'bear',
+            img: 'images/sm-bear.png'
+        },
+        {
+            name: 'carot',
+            img: 'images/sm-carot.png'
+        },
+        {
+            name: 'carot',
+            img: 'images/sm-carot.png'
+        },
+        {
+            name: 'coca',
+            img: 'images/sm-coca.png'
+        },
+        {
+            name: 'coca',
+            img: 'images/sm-coca.png'
+        },
+        {
+            name: 'cola',
+            img: 'images/sm-cola.png'
+        },
+        {
+            name: 'cola',
+            img: 'images/sm-cola.png'
+        },
+        {
+            name: 'corn',
+            img: 'images/sm-corn.png'
+        },
+        {
+            name: 'corn',
+            img: 'images/sm-corn.png'
+        },
+        {
+            name: 'pepper',
+            img: 'images/sm-pepper.png'
+        },
+        {
+            name: 'pepper',
+            img: 'images/sm-pepper.png'
+        },
+        {
+            name: 'pinap',
+            img: 'images/sm-pinap.png'
+        },
+        {
+            name: 'pinap',
+            img: 'images/sm-pinap.png'
+        },
+        {
+            name: 'pump',
+            img: 'images/sm-pump.png'
+        },
+        {
+            name: 'pump',
+            img: 'images/sm-pump.png'
+        }
+
+    ]
+   lvl1arr.sort(() => 0.5 - Math.random())
     const inttvv = document.getElementById('inttvv')
     const out2id = document.getElementById('out2id')
     const esmemlvl = document.getElementById('esmemlvl')
@@ -328,6 +571,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     function lvl1create() {
         numberoflights = 20;
+        hightwidth = 100;
         var itmp = 0;
         var ltmp = 0;
         var toptmp = '';
@@ -398,7 +642,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
     function lvl2create() {
-        
+        hightwidth = 100;
         var itmp = 0;
         var ltmp = 0;
         var toptmp = '';
@@ -469,7 +713,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
     function lvl3create() {
-        
+        hightwidth = 100;   
         var itmp = 0;
         var ltmp = 0;
         var toptmp = '';
@@ -540,6 +784,78 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
     
+    function lvl4create() {
+        hightwidth = 80;
+        var itmp = 0;
+        var ltmp = 0;
+        var toptmp = '';
+        var lefttmp = '';
+        inttvv.setAttribute('style','width: 800px; height: 510px');
+        
+        
+        
+        onlights()
+        for (let i = 0; i < 60; i++) {
+
+            const divtile = document.createElement('div')
+            divtile.classList.add("tilessty")
+            divtile.classList.add("click")
+            divtile.setAttribute('id', 'divtile' + i)
+            divtile.setAttribute('data-id', i)
+            divtile.addEventListener('click', tilesflip)
+            divtile.setAttribute('width', hightwidth)
+            divtile.setAttribute('height', hightwidth)
+            itmp = Math.floor(i/10)
+            ltmp = (hightwidth*i) - (itmp*hightwidth*10)
+            toptmp = 'top: ' + hightwidth*itmp + 'px';
+            lefttmp = 'left: ' + ltmp + 'px';
+            divtile.setAttribute('style', toptmp + '; ' + lefttmp)
+            
+            esmemlvl.appendChild(divtile)
+
+            const divfront = document.createElement('div')
+            const divback = document.createElement('div')
+            divfront.classList.add("front")
+            divback.classList.add("back")
+            divfront.setAttribute('id', 'frontid' + i)
+            divfront.setAttribute('data-id', i)
+            divback.setAttribute('id', 'backid' + i)
+            divback.setAttribute('data-id', i)
+
+
+
+            const divmom = document.querySelector('#divtile' + i)
+            divfront.setAttribute('width', hightwidth)
+            divfront.setAttribute('height', hightwidth)
+            divback.setAttribute('width', hightwidth)
+            divback.setAttribute('height', hightwidth)
+            divmom.appendChild(divfront)
+            divmom.appendChild(divback)
+
+
+            frontmom = document.querySelector('#frontid' + i)
+            backmom = document.querySelector('#backid' + i)
+
+            const tilefront = document.createElement('img')
+            const tileback = document.createElement('img')
+            tilefront.setAttribute('src', 'images/sm-blank.png')
+            tileback.setAttribute('src', lvl3arr[i].img)
+            tilefront.setAttribute('data-id', i)
+            tileback.setAttribute('data-id', i)
+            tilefront.setAttribute('width', hightwidth)
+            tilefront.setAttribute('height', hightwidth)
+            tileback.setAttribute('width', hightwidth)
+            tileback.setAttribute('height', hightwidth)
+            frontmom.appendChild(tilefront)
+            backmom.appendChild(tileback)
+
+
+
+
+
+        }
+    }
+    
     function tilesflip() {
         let idtile = this.getAttribute('data-id');
         if(currentlvl==1)
@@ -551,6 +867,9 @@ document.addEventListener('DOMContentLoaded', () => {
         }else if(currentlvl==3)
         {
             tiledelect.push(lvl3arr[idtile].name);
+        }else if(currentlvl==4)
+        {
+            tiledelect.push(lvl4arr[idtile].name);
         }else
         {
 
@@ -624,6 +943,12 @@ document.addEventListener('DOMContentLoaded', () => {
         {
             if (wintile == 34) {
                 urscore.innerHTML = 'Nice Job, Level3 is done'
+                gotolvl4();
+            }
+        }else if(currentlvl==4)
+        {
+            if (wintile == 44) {
+                urscore.innerHTML = 'Nice Job, Level4 is done'
                 
             }
         }
@@ -682,6 +1007,22 @@ document.addEventListener('DOMContentLoaded', () => {
           setTimeout(alert("Nice try, Level 3 is starting now. get ready"), 500);
         lvl3arr.sort(() => 0.5 - Math.random())
         lvl3create();
+
+    }
+    function gotolvl4()
+    {
+        currentlvl = 4;
+        
+        urscore.innerHTML = "Score:" + wintile + " Life: " +  numberoflights
+        
+        while (esmemlvl.firstChild) {
+            esmemlvl.removeChild(esmemlvl.lastChild);
+          }
+          
+
+          setTimeout(alert("Nice try, Level 4 is starting now. get ready"), 500);
+        lvl4arr.sort(() => 0.5 - Math.random())
+        lvl4create();
 
     }
 

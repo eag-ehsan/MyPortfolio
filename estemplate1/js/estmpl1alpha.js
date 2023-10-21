@@ -6,18 +6,19 @@
 //#############                             #################
 //###########################################################
 //###########################################################
-const hexagonalArray = [];
-hexagonalArray[0] = ['evid02','evid04'];
-hexagonalArray[1] = ['evid01','evid03','evid05'];
-hexagonalArray[2] = ['evid14','evid16'];
-hexagonalArray[3] = ['evid15','evid17'];
-hexagonalArray[4] = ['evid24','evid26'];
-hexagonalArray[5] = ['evid23','evid25','evid27'];
-hexagonalArray[6] = ['evid34','evid36'];
-hexagonalArray[7] = ['evid35'];
-hexagonalArray[8] = ['evid46'];
-hexagonalArray[9] = ['evid45','evid47'];
+var hexagonalArray = [];
+// hexagonalArray[0] = ['evid02','evid04'];
+// hexagonalArray[1] = ['evid01','evid03','evid05'];
+// hexagonalArray[2] = ['evid12','evid14'];
+// hexagonalArray[3] = ['evid15','evid17'];
+// hexagonalArray[4] = ['evid24','evid26'];
+// hexagonalArray[5] = ['evid23','evid25','evid27'];
+// hexagonalArray[6] = ['evid34','evid36'];
+// hexagonalArray[7] = ['evid35'];
+// hexagonalArray[8] = ['evid46'];
+// hexagonalArray[9] = ['evid45','evid47'];
 
+hexagonalArray = ['evid02', 'evid04', 'evid01','evid03', 'evid05', 'evid12','evid14', 'evid15', 'evid17','evid24', 'evid26', 'evid23','evid25', 'evid27', 'evid34','evid36', 'evid35', 'evid46','evid45', 'evid47'];
 
 const numberOfHexagonsOnWidthid = document.getElementById('numberOfHexagonsOnWidthid');
 //-------- Base params --------------------------------------
@@ -68,57 +69,56 @@ function esResetToStyleOnHead(styleID, csstxt) {
     document.getElementsByTagName('head')[0].appendChild(sElem);
 }
 
-function esAddBodyColortoStyle(color1)
-{
+function esAddBodyColortoStyle(color1) {
     var csstxt = "" +
-    "	 body{                                                                    \n" +
-    "	 	background: " + color1 + ";                                           \n" +
-    "	 }                                                                        \n";
+        "	 body{                                                                    \n" +
+        "	 	background: " + color1 + ";                                           \n" +
+        "	 }                                                                        \n";
     esResetToStyleOnHead('styleFillFromCodeForBody', csstxt);
 
 }
 function esCreatAllStyleClasses(clsname, sbt, sbtm, sw, sh, slr, color1, color2) {
     var csstxt = "" +
-    "." + clsname + ":before{                                                     \n" +
-    "        content: '';                                                         \n" +
-    "        width: 0; height: 0;                                                 \n" +
-    "        border-bottom: " + sbt + "px solid " + color1 + ";                   \n" +
-    "        border-left: " + slr + "px solid transparent;                        \n" +
-    "        border-right: " + slr + "px solid transparent;                       \n" +
-    "        position: absolute;                                                  \n" +
-    "        top: " + sbtm + "px;                                                 \n" +
-    "    }                                                                        \n" +
-    "                                                                             \n" +
-    "    ." + clsname + "{                                                        \n" +
-    "        margin-top: " + sbt + "px;                                           \n" +
-    "        width: " + sw + "px;                                                 \n" +
-    "        height: " + sh + "px;                                                \n" +
-    "        background-color: " + color1 + ";                                    \n" +
-    "        position:absolute;                                                   \n" +
-     "        color: #d7ffe0;                                                      \n" +
-    "    }                                                                        \n" +
-    "                                                                             \n" +
-    "    ." + clsname + ":after{                                                  \n" +
-    "        content: '';                                                         \n" +
-    "        width: 0;                                                            \n" +
-    "        position: absolute;                                                  \n" +
-    "        bottom: " + sbtm + "px;                                              \n" +
-    "        border-top: " + sbt + "px solid " + color1 + ";                      \n" +
-    "        border-left: " + slr + "px solid transparent;                        \n" +
-    "        border-right: " + slr + "px solid transparent;                       \n" +
-    "                                                                             \n" +
-    "    }                                                                        \n" +
-    "	 ." + clsname + ":hover{                                                  \n" +
-    "	 	background-color: " + color2 + ";                                     \n" +
-    "	 }                                                                        \n" +
-    "	 ." + clsname + ":hover::before{                                          \n" +
-    "	 	                                                                      \n" +
-    "	 	border-bottom: " + sbt + "px solid " + color2 + ";                    \n" +
-    "	 }                                                                        \n" +
-    "	 ." + clsname + ":hover::after{                                           \n" +
-    "	 	                                                                      \n" +
-    "	 	border-top: " + sbt + "px solid " + color2 + ";                       \n" +
-    "	 	}                                                                     \n";
+        "." + clsname + ":before{                                                     \n" +
+        "        content: '';                                                         \n" +
+        "        width: 0; height: 0;                                                 \n" +
+        "        border-bottom: " + sbt + "px solid " + color1 + ";                   \n" +
+        "        border-left: " + slr + "px solid transparent;                        \n" +
+        "        border-right: " + slr + "px solid transparent;                       \n" +
+        "        position: absolute;                                                  \n" +
+        "        top: " + sbtm + "px;                                                 \n" +
+        "    }                                                                        \n" +
+        "                                                                             \n" +
+        "    ." + clsname + "{                                                        \n" +
+        "        margin-top: " + sbt + "px;                                           \n" +
+        "        width: " + sw + "px;                                                 \n" +
+        "        height: " + sh + "px;                                                \n" +
+        "        background-color: " + color1 + ";                                    \n" +
+        "        position:absolute;                                                   \n" +
+        "        color: #d7ffe0;                                                      \n" +
+        "    }                                                                        \n" +
+        "                                                                             \n" +
+        "    ." + clsname + ":after{                                                  \n" +
+        "        content: '';                                                         \n" +
+        "        width: 0;                                                            \n" +
+        "        position: absolute;                                                  \n" +
+        "        bottom: " + sbtm + "px;                                              \n" +
+        "        border-top: " + sbt + "px solid " + color1 + ";                      \n" +
+        "        border-left: " + slr + "px solid transparent;                        \n" +
+        "        border-right: " + slr + "px solid transparent;                       \n" +
+        "                                                                             \n" +
+        "    }                                                                        \n" +
+        "	 ." + clsname + ":hover{                                                  \n" +
+        "	 	background-color: " + color2 + ";                                     \n" +
+        "	 }                                                                        \n" +
+        "	 ." + clsname + ":hover::before{                                          \n" +
+        "	 	                                                                      \n" +
+        "	 	border-bottom: " + sbt + "px solid " + color2 + ";                    \n" +
+        "	 }                                                                        \n" +
+        "	 ." + clsname + ":hover::after{                                           \n" +
+        "	 	                                                                      \n" +
+        "	 	border-top: " + sbt + "px solid " + color2 + ";                       \n" +
+        "	 	}                                                                     \n";
     esResetToStyleOnHead('styleFillFromCode', csstxt);
 }
 function hexToRGB(hexString) {
@@ -199,7 +199,7 @@ function creatHexagons() {
     temp_for_root = Math.floor(tiles_left);
     esroot.style.setProperty('--hextiles-sides-lr', temp_for_root + 'px');
     */
-    
+
     var local_sbt = Math.floor(sideOfHwxagon / 2);
     var local_sbtm = Math.floor(-1 * sideOfHwxagon / 2);
     var local_sw = Math.floor(tiles_left * 2);
@@ -207,6 +207,7 @@ function creatHexagons() {
     var local_slr = Math.floor(tiles_left);
     esCreatAllStyleClasses('eshextilesclass', local_sbt, local_sbtm, local_sw, local_sh, local_slr, color1forhexa, color1forhover);
     esAddBodyColortoStyle(color1bg);
+    var tempidforcheck = null;
     for (j = -1; j < es_hexagon_row_numbers; j++) {
         if (j % 2 == 0) {
             tiles_top_offset = tiles_top_gap;
@@ -216,12 +217,17 @@ function creatHexagons() {
                 eshextiles = document.createElement('div');
                 eshextiles.classList.add("eshextilesclass");
                 eshextiles.classList.add("dispoff");
-                eshextiles.setAttribute('id', 'evid' + i + j);
+                eshextiles.classList.add("dispon");
+                tempidforcheck = 'evid' + i + j;
+                eshextiles.setAttribute('id', tempidforcheck);
                 eshextiles.setAttribute('name', 'eshex');
                 t_top = Math.floor((tiles_top + t_gap_top) * i + tiles_top_offset);
                 t_left = Math.floor((tiles_left + t_gap_left) * j);
                 eshextiles.setAttribute('style', 'top: ' + t_top + 'px; left: ' + t_left + 'px');
-                esmain.appendChild(eshextiles);
+                if(hexagonalArray.includes(tempidforcheck)){
+                    esmain.appendChild(eshextiles);
+                }
+                    
 
             }
         } else {
@@ -235,12 +241,16 @@ function creatHexagons() {
                 eshextiles = document.createElement('div');
                 eshextiles.classList.add("eshextilesclass");
                 eshextiles.classList.add("dispoff");
-                eshextiles.setAttribute('id', 'evid' + i + j);
+                eshextiles.classList.add("dispon");
+                tempidforcheck = 'evid' + i + j;
+                eshextiles.setAttribute('id', tempidforcheck);
                 eshextiles.setAttribute('name', 'eshex');
                 t_top = Math.floor((tiles_top + t_gap_top) * i + tiles_top_offset);
                 t_left = Math.floor((tiles_left + t_gap_left) * j);
                 eshextiles.setAttribute('style', 'top: ' + t_top + 'px; left: ' + t_left + 'px');
-                esmain.appendChild(eshextiles);
+                if(hexagonalArray.includes(tempidforcheck)){
+                    esmain.appendChild(eshextiles);
+                }
 
             }
 
@@ -248,28 +258,20 @@ function creatHexagons() {
 
     }
 
-    
-        $(".eshextilesclass").hover(function () {
-    
-    
-    
-            
-        },
-    
-            function () {
-    
-    
-    
-                $(this).removeClass('rotate');
-            }
-    
-        );
-    
-    
 
+    $(".eshextilesclass").hover(function () {
+
+    },
+
+        function () {
+
+
+
+            $(this).removeClass('rotate');
+        }
+
+    );
     $(".eshextilesclass").click(function () {
-
-
         $(this).text($(this).attr('id'));
         $(this).addClass('rotate');
     });
@@ -279,38 +281,35 @@ function creatHexagons() {
 
 }
 creatHexagons();
+var nCounter = 0;
+function applychanges() {
+    // numberOfHexagonsOnWidth = numberOfHexagonsOnWidthid.value;
+    // color1forhexa = colorOfHexagonsid.value;
+    // color1forhover = colorOfHoverid.value;
+    // color1bg = colorOfBgid.value;
+    // creatHexagons();
 
-function applychanges()
-{
-    numberOfHexagonsOnWidth = numberOfHexagonsOnWidthid.value;
-    color1forhexa = colorOfHexagonsid.value;
-    color1forhover = colorOfHoverid.value;
-    color1bg = colorOfBgid.value;
-    creatHexagons();
     
+    myInterval = window.setInterval(() => {
+        gotonexthexa(nCounter);
+        nCounter++
+        if(nCounter>=hexagonalArray.length){
+            clearInterval(myInterval);
+        }
+
+    },500);
+
+    
+}
+function gotonexthexa(currenti)
+{
+    $('#'+hexagonalArray[currenti]).removeClass('dispon');
+    //$('#'+hexagonalArray[currenti]).addClass('dispon');
+    $('#'+hexagonalArray[currenti]).addClass('rotate');
+    //$('#'+hexagonalArray[currenti]).removeClass('rotate');
+    //$('#'+hexagonalArray[currenti]).addClass('rotate');
 }
 window.addEventListener('resize', applychanges);
 
-$(document).ready(function () {
-
-for(i=0;i<8;i++)
-{
-    for(j=0;j<hexagonalArray[i].length;j++)
-    {
-        
-
-            $('#'+hexagonalArray[i][j]).removeClass('dispoff');
-            $('#'+hexagonalArray[i][j]).addClass('dispon');
-            //$('#'+hexagonalArray[i][j]).addClass('rotate');
-            
-        
-    }
-    
-}
 
 
-
-
-
-
-});

@@ -21,18 +21,28 @@
 
 .rotate {
     z-index: 999;
-    transition-duration: 2s;
-    transition-property: rgb(134, 0, 116);
-    -webkit-transform: scale(1.5) rotate(360deg);
-    -webkit-transition: -webkit-transform 1s;
+    
+    -webkit-transform: scale(1) rotateY(360deg);
+    -webkit-transition: -webkit-transform 0.5s;
+}
+.flipp{
+    transition: transform 1.6s;
+  transform-style: preserve-3d;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transform: rotateY(180deg);
+}
+.flippback{
+    transform: rotateY(180deg);
 }
 .dispoff{
-    display: none;
-}
-.dispon{
     display: flex;                      
     flex-wrap: wrap;                                
     align-content: center;                       
-    justify-content: center;                 
+    justify-content: center; 
+    
+}
+.dispon{
+    -webkit-transform: scale(0);
+    -webkit-transition: -webkit-transform 1ms;                
 
 }

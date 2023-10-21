@@ -6,6 +6,19 @@
 //#############                             #################
 //###########################################################
 //###########################################################
+const hexagonalArray = [];
+hexagonalArray[0] = ['evid02','evid04'];
+hexagonalArray[1] = ['evid01','evid03','evid05'];
+hexagonalArray[2] = ['evid14','evid16'];
+hexagonalArray[3] = ['evid15','evid17'];
+hexagonalArray[4] = ['evid24','evid26'];
+hexagonalArray[5] = ['evid23','evid25','evid27'];
+hexagonalArray[6] = ['evid34','evid36'];
+hexagonalArray[7] = ['evid35'];
+hexagonalArray[8] = ['evid46'];
+hexagonalArray[9] = ['evid45','evid47'];
+
+
 const numberOfHexagonsOnWidthid = document.getElementById('numberOfHexagonsOnWidthid');
 //-------- Base params --------------------------------------
 var numberOfScrollPages = 3;
@@ -82,11 +95,7 @@ function esCreatAllStyleClasses(clsname, sbt, sbtm, sw, sh, slr, color1, color2)
     "        height: " + sh + "px;                                                \n" +
     "        background-color: " + color1 + ";                                    \n" +
     "        position:absolute;                                                   \n" +
-    "        display: flex;                                                       \n" +
-    "        flex-wrap: wrap;                                                     \n" +
-    "        align-content: center;                                               \n" +
-    "        justify-content: center;                                             \n" +
-    "        color: #d7ffe0;                                                      \n" +
+     "        color: #d7ffe0;                                                      \n" +
     "    }                                                                        \n" +
     "                                                                             \n" +
     "    ." + clsname + ":after{                                                  \n" +
@@ -206,6 +215,7 @@ function creatHexagons() {
             for (i = 0; i < es_hexagon_col_numbers; i++) {
                 eshextiles = document.createElement('div');
                 eshextiles.classList.add("eshextilesclass");
+                eshextiles.classList.add("dispoff");
                 eshextiles.setAttribute('id', 'evid' + i + j);
                 eshextiles.setAttribute('name', 'eshex');
                 t_top = Math.floor((tiles_top + t_gap_top) * i + tiles_top_offset);
@@ -224,7 +234,8 @@ function creatHexagons() {
             for (i = -1; i < es_hexagon_col_numbers; i++) {
                 eshextiles = document.createElement('div');
                 eshextiles.classList.add("eshextilesclass");
-                eshextiles.setAttribute('id', 'odid' + i + j);
+                eshextiles.classList.add("dispoff");
+                eshextiles.setAttribute('id', 'evid' + i + j);
                 eshextiles.setAttribute('name', 'eshex');
                 t_top = Math.floor((tiles_top + t_gap_top) * i + tiles_top_offset);
                 t_left = Math.floor((tiles_left + t_gap_left) * j);
@@ -282,7 +293,20 @@ window.addEventListener('resize', applychanges);
 
 $(document).ready(function () {
 
+for(i=0;i<8;i++)
+{
+    for(j=0;j<hexagonalArray[i].length;j++)
+    {
+        
 
+            $('#'+hexagonalArray[i][j]).removeClass('dispoff');
+            $('#'+hexagonalArray[i][j]).addClass('dispon');
+            //$('#'+hexagonalArray[i][j]).addClass('rotate');
+            
+        
+    }
+    
+}
 
 
 

@@ -26,3 +26,13 @@
     -webkit-transform: scale(1.5) rotate(360deg);
     -webkit-transition: -webkit-transform 1s;
 }
+.dispoff{
+    display: none;
+}
+.dispon{
+    display: flex;                      
+    flex-wrap: wrap;                                
+    align-content: center;                       
+    justify-content: center;                 
+
+}

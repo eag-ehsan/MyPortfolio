@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- #region meta title-->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Ehsan A.G. Portfolio projects - ES Template1</title>
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    
+
+        
+    <!-- #endregion -->
+    <style id="styleFillFromCode">
+
+    </style>
+    <style id="styleFillFromCodeForBody">
+
+    </style>
+    <style id="fixedstyle">
+        .topframe{
+            position:fixed; 
+            top: 4px; 
+            width: 98%; 
+            height: 30px; 
+            z-index: 1999; 
+            background-color: rgb(245, 223, 195);
+            border-radius: 10px;
+            font-size: 12px;
+            font-weight: bold;
+            padding-top: 3px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .rotate
+        {
+            z-index: 999;
+            transition-duration: 2s;
+            transition-property: rgb(134, 0, 116);
+            -webkit-transform: scale(1.5) rotate(360deg) ;
+            -webkit-transition: -webkit-transform 1s;
+        }
+    </style>
+
+</head>
+
+<body id="top">
+ 
+
+    <div class="topframe">
+        <label for="fname">number Of Hexagons On Width:</label>
+        <input type="text" id="numberOfHexagonsOnWidthid" style="width: 25px; text-align: center;" value="12">
+        <label for="fname" style="margin-left: 5px;">hexagon:</label>
+        <input type="color" id="colorOfHexagonsid" style="margin-left: 5px; width: 30px;"  value="#231B01">
+        <label for="fname" style="margin-left: 5px;">hover:</label>
+        <input type="color" id="colorOfHoverid" style="margin-left: 5px; width: 30px;"  value="#CF8E00">
+        <label for="fname" style="margin-left: 5px;">background:</label>
+        <input type="color" id="colorOfBgid" style="margin-left: 5px; width: 30px;"  value="#D1CA00">
+        <button onclick="applychanges()" style="margin-left: 5px;">Apply</button>
+    </div>
+    <div id="esmain"></div>
+
+</body>
+<script src="js/estemplate1.js"></script>
+
+</html>

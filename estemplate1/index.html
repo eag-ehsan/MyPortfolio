@@ -10,7 +10,8 @@
     <meta name="author" content="">
 
     <title>Ehsan A.G. Portfolio projects - ES Template1</title>
-    
+    <link href="css/tmpl1main.css" rel="stylesheet">
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     
 
@@ -22,31 +23,7 @@
     <style id="styleFillFromCodeForBody">
 
     </style>
-    <style id="fixedstyle">
-        .topframe{
-            position:fixed; 
-            top: 4px; 
-            width: 98%; 
-            height: 30px; 
-            z-index: 1999; 
-            background-color: rgb(245, 223, 195);
-            border-radius: 10px;
-            font-size: 12px;
-            font-weight: bold;
-            padding-top: 3px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        .rotate
-        {
-            z-index: 999;
-            transition-duration: 2s;
-            transition-property: rgb(134, 0, 116);
-            -webkit-transform: scale(1.5) rotate(360deg) ;
-            -webkit-transition: -webkit-transform 1s;
-        }
-    </style>
+    
 
 </head>
 
@@ -54,19 +31,50 @@
  
 
     <div class="topframe">
-        <label for="fname">number Of Hexagons On Width:</label>
-        <input type="text" id="numberOfHexagonsOnWidthid" style="width: 25px; text-align: center;" value="12">
-        <label for="fname" style="margin-left: 5px;">hexagon:</label>
-        <input type="color" id="colorOfHexagonsid" style="margin-left: 5px; width: 30px;"  value="#231B01">
-        <label for="fname" style="margin-left: 5px;">hover:</label>
-        <input type="color" id="colorOfHoverid" style="margin-left: 5px; width: 30px;"  value="#CF8E00">
-        <label for="fname" style="margin-left: 5px;">background:</label>
-        <input type="color" id="colorOfBgid" style="margin-left: 5px; width: 30px;"  value="#D1CA00">
-        <button onclick="applychanges()" style="margin-left: 5px;">Apply</button>
+        <h1>Some downloadable designed samples </h1>
+        <div class="outdiv1">
+            <div class="intcard1">
+                <a href="estmpl1basic.html">
+                    <div class="intcard2">
+                        <img src="images/tm-tmpl1.jpg" alt="">
+                        <p>Main code for testing color themes</p>
+                    </div>
+                </a>
+            </div>
+            <div class="intcard1">
+                <a href="estmpl1alpha.html">
+                    <div class="intcard2">
+                        <img src="images/tm-tmpl2.jpg" alt="">
+                        <p>One of my favorite usage of this code</p>
+                    </div>
+                </a>
+            </div>
+            <div class="intcard1">
+                <a href="estmpl1basic.html">
+                    <div class="intcard2">
+                        <img src="images/tm-tmpl3.jpg" alt="">
+                        <p>Main code for testing color themes</p>
+                    </div>
+                </a>
+            </div>
+       </div>
+        
+        <div style="display: none;">
+            <label for="fname">number Of Hexagons On Width:</label>
+            <input type="text" id="numberOfHexagonsOnWidthid" style="width: 25px; text-align: center;" value="12">
+            <label for="fname" style="margin-left: 5px;">hexagon:</label>
+            <input type="color" id="colorOfHexagonsid" style="margin-left: 5px; width: 30px;"  value="#F7F7F7">
+            <label for="fname" style="margin-left: 5px;">hover:</label>
+            <input type="color" id="colorOfHoverid" style="margin-left: 5px; width: 30px;"  value="#0D0F30">
+            <label for="fname" style="margin-left: 5px;">background:</label>
+            <input type="color" id="colorOfBgid" style="margin-left: 5px; width: 30px;"  value="#0D0F30">
+            <button onclick="applychanges()" style="margin-left: 5px;">Apply</button>
+    
+        </div>
     </div>
     <div id="esmain"></div>
 
 </body>
-<script src="js/estemplate1.js"></script>
+<script src="js/estmpl1Base.js"></script>
 
 </html>

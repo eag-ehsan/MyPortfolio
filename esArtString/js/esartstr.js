@@ -1,28 +1,32 @@
-
-var imageWidth = 50;
+let PNUMBERS = 360; 
+var imageWidth = 0;
 var i=0,j=0;
-var imageHeight = 50;
+var imageHeight = 0;
 var imgid1 = document.getElementById("imgid1");
 var inFile = document.getElementById("fileInput");
 var canvas1 = document.getElementById("canvas1id");
 var imgmatrixid = document.getElementById("imgmatrixid");
 var ctx = canvas1.getContext('2d');
+var pinCoordinates = [];
+
 
 var rowDives = null;
 var divpixelblocks = null;
 var imgPixelMatrixMain = []
-for(i=0;i<imageWidth;i++){
-    imgPixelMatrixMain[i] = [];
-}
+
 
 inFile.addEventListener("change", (e) => {
     imgid1.src = URL.createObjectURL(e.target.files[0]);
   }, false);
 
 //imgonload();
-function imgonload(){
+//imgid1.src = 'a4.jpg'
+imgid1.onload = function (){
+    imageWidth = this.width;
+    imageHeight = this.height;
     img1 = new Image();
     img1.src = imgid1.src;
+
     ctx.canvas.width = imageWidth;
     ctx.canvas.height = imageHeight;
 
@@ -36,6 +40,9 @@ function imgonload(){
     ctx.arc(imageWidth/2,imageHeight/2, imageHeight/2, 0, Math.PI*2);
     ctx.closePath();
     ctx.fill();
+    for(i=0;i<imageWidth;i++){
+        imgPixelMatrixMain[i] = [];
+    }
 }
 function RGB2Hex(rgbIntArray) {
     return byte2hex(rgbIntArray[0]) + byte2hex(rgbIntArray[1]) + byte2hex(rgbIntArray[2]);
@@ -79,4 +86,21 @@ function escreatmatrix(){
 
         }
     }
+    pinCoordsCalc();
+}
+
+function pinCoordsCalc(){
+
+    var cr = imageWidth / 2;
+    var rr = imageWidth / 2 - 1;
+  
+    for(i=0;i<PNUMBERS;i++){
+        var xxx = Math.floor(cr + rr * Math.cos(angle));
+        var yyy = Math.floor(cr + rr * Math.sin(angle));
+        pinCoordinates.push([xxx,yyy]);
+
+    }
+}
+function calcLines(){
+
 }

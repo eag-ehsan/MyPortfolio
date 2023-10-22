@@ -2,8 +2,16 @@ let PNUMBERS = 360;
 let MIND = 30;
 let MAXL = 5000;
 var imageWidth = 0;
+var sizePower2 = 0;
 var i = 0, j = 0, k = 0;
 var imageHeight = 0;
+var Lsequ = [];
+var mikh = 0;
+var toolNakh = 0;
+var mikhLast = [];
+var errorLine = -1;
+var errorMax = -1;
+var mikhbest = -1;
 var imgid1 = document.getElementById("imgid1");
 var inFile = document.getElementById("fileInput");
 var canvas1 = document.getElementById("canvas1id");
@@ -11,13 +19,14 @@ var imgmatrixid = document.getElementById("imgmatrixid");
 var ctx = canvas1.getContext('2d');
 var pinCoordinates = [];
 
+var err_2dim_matrix = [];
 var line_NxN_matrix_x;
 var line_NxN_matrix_y;
 
 var rowDives = null;
 var divpixelblocks = null;
 var imgPixelMatrixMain = []
-
+var imgPixelMatrix = [];
 
 inFile.addEventListener("change", (e) => {
     imgid1.src = URL.createObjectURL(e.target.files[0]);
@@ -30,7 +39,7 @@ imgid1.onload = function () {
     imageHeight = this.height;
     img1 = new Image();
     img1.src = imgid1.src;
-
+    sizePower2 = imageWidth * imageWidth;
     ctx.canvas.width = imageWidth;
     ctx.canvas.height = imageHeight;
 
@@ -46,6 +55,7 @@ imgid1.onload = function () {
     ctx.fill();
     for (i = 0; i < imageWidth; i++) {
         imgPixelMatrixMain[i] = [];
+        imgPixelMatrix[i] = [];
     }
 }
 function RGB2Hex(rgbIntArray) {
@@ -83,6 +93,10 @@ function escreatmatrix() {
             divpixelblocks.setAttribute('id', tmppid);
 
             var data = imgPixelMatrixMain[i][j].data;
+            
+            var tmp1;
+            tmp1 = Math.floor((data[0] + data[1] + data[2])/3); 
+            imgPixelMatrix [i][j] = tmp1;
             divpixelblocks.setAttribute('style', 'background-color: #' + RGB2Hex(data));
             rowforadd.appendChild(divpixelblocks);
 
@@ -133,10 +147,53 @@ function calcLines1() {
         }
     }
 
+    for (i=0;i<imageWidth;i++)
+    {
+        err_2dim_matrix[i] = []
+    }
+    for (i=0;i<imageWidth;i++){
+        for(j=0;j<imageWidth;j++){
+            err_2dim_matrix[i][j] = (0x01 & 0xFF) - imgPixelMatrix[i][j];
+        }
+    }
+    var mikhtesti;
+    var k_k,k_k_k;
+    Lsequ.push(0);
+    for(i = 0; i < MAXL; i++) {
+		mikhLast = -1
+		errorLine = -1;
+        errorMax = -1;
+
+		for(k=MIND; k<(PNUMBERS - MIND); k++) {
+			mikhtesti = (mikh + k) % PNUMBERS
+			if(mikhLast.includes(mikhtesti)){
+				continue;
+			}else{
+				k_k = mikhtesti * PNUMBERS + mikh;
+				errorLine = getLineErr(err_2dim_matrix, line_NxN_matrix_y[k_k], line_NxN_matrix_x[k_k]);
+				if( errorLine > errorMax){
+					errorMax = errorLine
+					mikhbest = mikhtesti
+					k_k = k_k_k;
+				}
+			}
+		}
+
+		Lsequ = append(Lsequ, mikhbest);
+
+		crds1=line_NxN_matrix_y[k_k_k]
+		crds2=line_NxN_matrix_x[k_k_k]
+		
+	}	
+
+
+
+
+
 }
 function pixelCounterArray(startPoint, endPoint, distancePoints) {
     var iCounter;
-    var returnArray = [];
+    var returnArray = Array(distancePoints);
     if (distancePoints < 2) {
         if (distancePoints == 1) {
             returnArray[0] = startPoint;

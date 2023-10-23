@@ -1,6 +1,6 @@
 let PNUMBERS = 36*8;
 let MIND = 20;
-let MAXL = 2000;
+let MAXL = 5000;
 let ZEKHAMATL = 20;
 var imageWidth = 0;
 var sizePower2 = 0;

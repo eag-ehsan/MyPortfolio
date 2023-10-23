@@ -255,6 +255,14 @@ function calcLines1() {
             errorMax = -1;
     
             for(k=MIND; k<(PNUMBERS - MIND); k++) {
+                if(k==(PNUMBERS - MIND-2))
+                {
+                    k==(PNUMBERS - MIND-2);
+                }
+                if(k==158)
+                {
+                    k=158;
+                }
                 mikhtesti = (mikh + k) % PNUMBERS
                 if(mikhLast.includes(mikhtesti)){
                     continue;
@@ -330,7 +338,7 @@ function pixelCounterArray(startPoint, endPoint, distancePoints) {
         return returnArray;
     }
     for (iCounter = 0; iCounter < distancePoints; iCounter++) {
-        returnArray[iCounter] = Math.floor((iCounter * endPoint + (distancePoints - iCounter) * startPoint) / distancePoints);
+        returnArray[iCounter] = Math.floor((iCounter * endPoint + ((distancePoints-1) - iCounter) * startPoint) / (distancePoints-1));
     }
     return returnArray;
 }

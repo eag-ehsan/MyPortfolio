@@ -1,7 +1,7 @@
 let PNUMBERS = 288;
 let MIND = 20;
 let MAXL = 5000;
-let ZEKHAMATL = 8;
+let ZEKHAMATL = 18;
 var imageWidth = 0;
 var sizePower2 = 0;
 var PNUMBERSPower2 = PNUMBERS * PNUMBERS;

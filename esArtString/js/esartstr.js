@@ -68,6 +68,7 @@ imgid1.onload = function () {
         for(var x = 0; x < allpx.width; x++){
             var pp = (y * 4) * allpx.width + x * 4;
             var esavg = (allpx.data[pp] + allpx.data[pp + 1] + allpx.data[pp + 2]) / 3;
+            esavg = Math.floor(esavg);
             allpx.data[i] = esavg; 
             allpx.data[i + 1] = esavg; 
             allpx.data[i + 2] = esavg;
@@ -230,7 +231,12 @@ function calcLines1() {
     }
     for (i=0;i<imageWidth;i++){
         for(j=0;j<imageWidth;j++){
+            if(j==124)
+            {
+                j=124;
+            }
             err_2dim_matrix[i][j] = (0x01 * 0xFF) - imgPixelMatrix[i][j];
+            j = j +0;
         }
     }
     for (i=0;i<imageWidth;i++)
@@ -239,7 +245,7 @@ function calcLines1() {
     }
     for (i=0;i<imageWidth;i++){
         for(j=0;j<imageWidth;j++){
-            poosheshLine[i][j] = 0.0;
+            poosheshLine[i][j] = 0;
         }
     }
     var mikhtesti;
@@ -281,17 +287,19 @@ function calcLines1() {
             }
     
             Lsequ.push(mikhbest);
-    
-            crds1=line_NxN_matrix_y[k_k_k];
-            crds2=line_NxN_matrix_x[k_k_k];
+            
+            xmat = line_NxN_matrix_x[mikhbest * PNUMBERS + mikh];
+            ymat = line_NxN_matrix_y[mikhbest * PNUMBERS + mikh];
+            crds1=line_NxN_matrix_y[mikhbest * PNUMBERS + mikh];
+            crds2=line_NxN_matrix_x[mikhbest * PNUMBERS + mikh];
             var zekh = ZEKHAMATL * line_PxP_matrix_z[mikhbest * PNUMBERS + mikh];
     
             for (i=0;i<imageWidth;i++){
                 for(j=0;j<imageWidth;j++){
-                    poosheshLine[i][j] = 0.0;
+                    poosheshLine[i][j] = 0;
                 }
             }
-            setLineCoordinatesToArray
+            
             poosheshLine = setLineCoordinatesToArray(poosheshLine, ymat, xmat, zekh);
             err_2dim_matrix = subArr(err_2dim_matrix, poosheshLine);
     

@@ -1,7 +1,7 @@
-let PNUMBERS = 36*8;
+let PNUMBERS = 288;
 let MIND = 20;
 let MAXL = 5000;
-let ZEKHAMATL = 20;
+let ZEKHAMATL = 8;
 var imageWidth = 0;
 var sizePower2 = 0;
 var PNUMBERSPower2 = PNUMBERS * PNUMBERS;
@@ -32,7 +32,7 @@ esDrawlines_div1.classList.add('displaynone');
 var ctx = canvas1.getContext('2d');
 var ctx_draw = esDrawlines_canvas1.getContext('2d');
 var pinCoordinates = [];
-
+var pinCoordinatesBig = [];
 var poosheshLine = [];
 var err_2dim_matrix = [];
 var line_NxN_matrix_x;
@@ -166,7 +166,19 @@ function pinCoordsCalc() {
     }
 }
 
+function pinCoordsCalcBig(wh) {
 
+    var cr = wh / 2;
+    var rr = wh / 2 - 1/2;
+    var angg;
+    for (i = 0; i < PNUMBERS; i++) {
+        angg = 2 * Math.PI * i / PNUMBERS;
+        var xxx = Math.floor(cr + rr * Math.cos(angg));
+        var yyy = Math.floor(cr + rr * Math.sin(angg));
+        pinCoordinatesBig.push([xxx, yyy]);
+
+    }
+}
 function gettingErrorline(myArray, coords1, coords2){
     let result = new Uint8Array(coords1.length);
     for(i=0;i<coords1.length;i++){
@@ -359,28 +371,28 @@ function calcLines1() {
 
 function es_draw_lines()
 {
-    ctx_draw.canvas.width = imageWidth;
-    ctx_draw.canvas.height = imageHeight;
+    ctx_draw.canvas.width = 1000;
+    ctx_draw.canvas.height = 1000;
 
     ctx_draw.clearRect(0, 0, imageWidth, imageHeight);
 
 
-    ctx_draw.lineWidth = 0.5;
+    ctx_draw.lineWidth = 0.2;
        
     var draw_x1 = 0;
     var draw_y1 = 0;
     var draw_x2 = 0;
     var draw_y2 = 0;
 
-
+    pinCoordsCalcBig(1000);
 
     (function es_survive_loop(){
         if(i<Lsequ.length){
 
-            draw_x1 = pinCoordinates[Lsequ[i-1]][0];
-            draw_y1 = pinCoordinates[Lsequ[i-1]][1];
-            draw_x2 = pinCoordinates[Lsequ[i]][0];
-            draw_y2 = pinCoordinates[Lsequ[i]][1];
+            draw_x1 = pinCoordinatesBig[Lsequ[i-1]][0];
+            draw_y1 = pinCoordinatesBig[Lsequ[i-1]][1];
+            draw_x2 = pinCoordinatesBig[Lsequ[i]][0];
+            draw_y2 = pinCoordinatesBig[Lsequ[i]][1];
     
     
             ctx_draw.beginPath(pinCoordinates);

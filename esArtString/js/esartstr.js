@@ -1,8 +1,10 @@
 let PNUMBERS = 360;
 let MIND = 30;
 let MAXL = 5000;
+let ZEKHAMATL = 20;
 var imageWidth = 0;
 var sizePower2 = 0;
+var PNUMBERSPower2 = PNUMBERS * PNUMBERS;
 var i = 0, j = 0, k = 0;
 var imageHeight = 0;
 var Lsequ = [];
@@ -15,13 +17,19 @@ var mikhbest = -1;
 var imgid1 = document.getElementById("imgid1");
 var inFile = document.getElementById("fileInput");
 var canvas1 = document.getElementById("canvas1id");
+var goodjob = document.getElementById("goodjob");
 var imgmatrixid = document.getElementById("imgmatrixid");
 var ctx = canvas1.getContext('2d');
 var pinCoordinates = [];
 
+var poosheshLine = [];
 var err_2dim_matrix = [];
 var line_NxN_matrix_x;
 var line_NxN_matrix_y;
+var line_PxP_matrix_l;
+var line_PxP_matrix_z;
+
+
 
 var rowDives = null;
 var divpixelblocks = null;
@@ -79,8 +87,8 @@ function escreatmatrix() {
         rowDives = document.createElement('div');
         rowDives.classList.add("rowdives");
         rowDives.setAttribute('id', 'rowid' + j);
-        imgmatrixid.appendChild(rowDives);
-        var rowforadd = document.getElementById('rowid' + j);
+        //imgmatrixid.appendChild(rowDives);
+        //var rowforadd = document.getElementById('rowid' + j);
         for (i = 0; i < imageWidth; i++) {
 
 
@@ -98,7 +106,7 @@ function escreatmatrix() {
             tmp1 = Math.floor((data[0] + data[1] + data[2])/3); 
             imgPixelMatrix [i][j] = tmp1;
             divpixelblocks.setAttribute('style', 'background-color: #' + RGB2Hex(data));
-            rowforadd.appendChild(divpixelblocks);
+            //rowforadd.appendChild(divpixelblocks);
 
 
 
@@ -112,18 +120,63 @@ function pinCoordsCalc() {
 
     var cr = imageWidth / 2;
     var rr = imageWidth / 2 - 1;
-
+    var angg;
     for (i = 0; i < PNUMBERS; i++) {
-        var xxx = Math.floor(cr + rr * Math.cos(angle));
-        var yyy = Math.floor(cr + rr * Math.sin(angle));
+        angg = 2 * Math.PI * i / PNUMBERS;
+        var xxx = Math.floor(cr + rr * Math.cos(angg));
+        var yyy = Math.floor(cr + rr * Math.sin(angg));
         pinCoordinates.push([xxx, yyy]);
 
     }
 }
+function errLineGet(arr, coords1, coords2){
+    let result = new Uint8Array(coords1.length);
+    for(i=0;i<coords1.length;i++){
+        result[i] = arr.get(coords1[i], coords2[i]);
+    }
+    var tmpsum;
+    for(i=0;i<result.length;i++){
+        tmpsum = tmpsum + result[i];
+    }
+    return tmpsum;
+}
+
+function setLineCoordinatesToArray(array1, crds1, crds2, line){
+    for(i=0;i<crds1.length;i++){
+        array1.set(crds1[i], crds2[i], line);
+    }
+    return array1;
+}
+function subArr(arr1, arr2) {
+    for(i=0; i<arr1.selection.data.length;i++){
+        arr1.selection.data[i] = arr1.selection.data[i] - arr2.selection.data[i]
+        if(arr1.selection.data[i] < 0){
+            arr1.selection.data[i] = 0;
+        }else if (arr1.selection.data[i] > 255){
+            arr1.selection.data[i] = 255;
+        }
+    }
+    return arr1;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
 function calcLines1() {
     var x1, y1, x2, y2, xmat, ymat, dist;
-    line_NxN_matrix_y = Array.apply(null, { length: (PNUMBERS * PNUMBERS) });
-    line_NxN_matrix_x = Array.apply(null, { length: (PNUMBERS * PNUMBERS) });
+    line_NxN_matrix_y = Array.apply(null, { length: (PNUMBERSPower2) });
+    line_NxN_matrix_x = Array.apply(null, { length: (PNUMBERSPower2) });
+    line_PxP_matrix_l = Array.apply(null, {length: (PNUMBERSPower2)}).map(Number.prototype.valueOf,0);
+    line_PxP_matrix_z = Array.apply(null, {length: (PNUMBERSPower2)}).map(Number.prototype.valueOf,1);
 
     for (i = 0; i < PNUMBERS; i++) {
         for (j = (i + MIND); j < PNUMBERS; j++) {
@@ -156,6 +209,15 @@ function calcLines1() {
             err_2dim_matrix[i][j] = (0x01 & 0xFF) - imgPixelMatrix[i][j];
         }
     }
+    for (i=0;i<imageWidth;i++)
+    {
+        poosheshLine[i] = []
+    }
+    for (i=0;i<imageWidth;i++){
+        for(j=0;j<imageWidth;j++){
+            poosheshLine[i][j] = 0.0;
+        }
+    }
     var mikhtesti;
     var k_k,k_k_k;
     Lsequ.push(0);
@@ -170,7 +232,10 @@ function calcLines1() {
 				continue;
 			}else{
 				k_k = mikhtesti * PNUMBERS + mikh;
-				errorLine = getLineErr(err_2dim_matrix, line_NxN_matrix_y[k_k], line_NxN_matrix_x[k_k]);
+                xmat = line_NxN_matrix_x[mikhtesti * PNUMBERS + mikh];
+                ymat = line_NxN_matrix_y[mikhtesti * PNUMBERS + mikh];
+
+				errorLine = errLineGet(err_2dim_matrix, line_NxN_matrix_y[k_k], line_NxN_matrix_x[k_k])  * line_PxP_matrix_z[mikhtesti * PNUMBERS + mikh];
 				if( errorLine > errorMax){
 					errorMax = errorLine
 					mikhbest = mikhtesti
@@ -179,13 +244,39 @@ function calcLines1() {
 			}
 		}
 
-		Lsequ = append(Lsequ, mikhbest);
+        Lsequ.push(mikhbest);
 
-		crds1=line_NxN_matrix_y[k_k_k]
-		crds2=line_NxN_matrix_x[k_k_k]
-		
+		crds1=line_NxN_matrix_y[k_k_k];
+		crds2=line_NxN_matrix_x[k_k_k];
+        var zekh = ZEKHAMATL * line_PxP_matrix_z[mikhbest * PNUMBERS + mikh];
+
+        for (i=0;i<imageWidth;i++){
+            for(j=0;j<imageWidth;j++){
+                poosheshLine[i][j] = 0.0;
+            }
+        }
+        setLineCoordinatesToArray
+        poosheshLine = setLineCoordinatesToArray(poosheshLine, ymat, xmat, zekh);
+        err_2dim_matrix = subArr(err_2dim_matrix, poosheshLine);
+
+        /*
+        x1 = pinCoordinates[mikh][0];
+        y1 = pinCoordinates[mikh][1];
+
+        x2 = pinCoordinates[mikhbest][0];
+        y2 = pinCoordinates[mikhbest][1];
+
+        var tmpdistance = Math.sqrt((x2 - x1) * (x2 - x1) + (y2 - y1) * (y2 - y1));
+        */
+
+        mikhLast.push(mikhbest);
+        if(mikhLast.length > MIND){
+            mikhLast.shift();
+        }
+        mikh = mikhbest;		
 	}	
 
+    goodjob.value = Lsequ;
 
 
 

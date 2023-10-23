@@ -1,6 +1,6 @@
 let PNUMBERS = 36*8;
 let MIND = 20;
-let MAXL = 200;
+let MAXL = 2000;
 let ZEKHAMATL = 20;
 var imageWidth = 0;
 var sizePower2 = 0;
@@ -21,7 +21,16 @@ var goodjob = document.getElementById("goodjob");
 var esStatus = document.getElementById("esStatus");
 var esPercent = document.getElementById("esPercent");
 var imgmatrixid = document.getElementById("imgmatrixid");
+
+var esDrawlines_div1 = document.getElementById("esDrawlines_div1");
+var esDrawlines_div2 = document.getElementById("esDrawlines_div2");
+var esDrawlines_p1 = document.getElementById("esDrawlines_p1");
+var esDrawlines_p2 = document.getElementById("esDrawlines_p2");
+var esDrawlines_canvas1 = document.getElementById("esDrawlines_canvas1");
+esDrawlines_div1.classList.add('displaynone');
+
 var ctx = canvas1.getContext('2d');
+var ctx_draw = esDrawlines_canvas1.getContext('2d');
 var pinCoordinates = [];
 
 var poosheshLine = [];
@@ -190,6 +199,22 @@ function subArr(arr1, arr2) {
     return arr1;
 }
 
+function pixelCounterArray(startPoint, endPoint, distancePoints) {
+    var iCounter;
+    var returnArray = Array(distancePoints);
+    if (distancePoints < 2) {
+        if (distancePoints == 1) {
+            returnArray[0] = startPoint;
+        } else {
+            returnArray = [];
+        }
+        return returnArray;
+    }
+    for (iCounter = 0; iCounter < distancePoints; iCounter++) {
+        returnArray[iCounter] = Math.floor((iCounter * endPoint + ((distancePoints-1) - iCounter) * startPoint) / (distancePoints-1));
+    }
+    return returnArray;
+}
 
 
 function calcLines1() {
@@ -325,28 +350,53 @@ function calcLines1() {
         } else {
             esPercent.innerHTML =  'All lines completed'	;	
             goodjob.value = Lsequ;
+            esDrawlines_div1.classList.remove('displaynone');
+            esDrawlines_div1.classList.add('intdrw');
         }
     })();
 
+}
+
+function es_draw_lines()
+{
+    ctx_draw.canvas.width = imageWidth;
+    ctx_draw.canvas.height = imageHeight;
+
+    ctx_draw.clearRect(0, 0, imageWidth, imageHeight);
+
+
+    ctx_draw.lineWidth = 0.5;
+       
+    var draw_x1 = 0;
+    var draw_y1 = 0;
+    var draw_x2 = 0;
+    var draw_y2 = 0;
+
+
+
+    (function es_survive_loop(){
+        if(i<Lsequ.length){
+
+            draw_x1 = pinCoordinates[Lsequ[i-1]][0];
+            draw_y1 = pinCoordinates[Lsequ[i-1]][1];
+            draw_x2 = pinCoordinates[Lsequ[i]][0];
+            draw_y2 = pinCoordinates[Lsequ[i]][1];
+    
+    
+            ctx_draw.beginPath(pinCoordinates);
+            ctx_draw.moveTo(draw_x1,draw_y1);
+            ctx_draw.lineTo(draw_x2,draw_y2);
+            ctx_draw.strokeStyle = '#000000';
+            ctx_draw.stroke() ;
     
 
-
-
-
-}
-function pixelCounterArray(startPoint, endPoint, distancePoints) {
-    var iCounter;
-    var returnArray = Array(distancePoints);
-    if (distancePoints < 2) {
-        if (distancePoints == 1) {
-            returnArray[0] = startPoint;
-        } else {
-            returnArray = [];
+            esDrawlines_p2.innerHTML = 'drawing line number: ' + i;
+            i++;
+            setTimeout(es_survive_loop, 0);
+        }else{
+            esDrawlines_p2.innerHTML = 'Done all ' + Lsequ.length + ' lines';
         }
-        return returnArray;
-    }
-    for (iCounter = 0; iCounter < distancePoints; iCounter++) {
-        returnArray[iCounter] = Math.floor((iCounter * endPoint + ((distancePoints-1) - iCounter) * startPoint) / (distancePoints-1));
-    }
-    return returnArray;
+    })();
+
+
 }

@@ -60,11 +60,25 @@
                 </div>
                 <p id="esStatus"></p>
                 <p id="esPercent"></p>
-                <textarea id="goodjob" rows="10" cols="100"></textarea>
+                <textarea id="goodjob" rows="10" cols="100" style="display: none;"></textarea>
             </div>
 
        </div>
-        
+       <div class="outdiv1">
+       <div id="esDrawlines_div1">
+            <div class="intcard2">
+                <p id="esDrawlines_p1">Now click to draw these lines </p>
+                <button class="esBtn" onclick="es_draw_lines()">start Draw Lines</button>         
+            </div>
+            <div id="esDrawlines_div2" class="intcard3">
+                <canvas class="canvas1" id="esDrawlines_canvas1" width="500" height="500"></canvas>
+
+            </div>
+            <p id="esDrawlines_p2"></p>
+        </div>
+
+   </div>
+   
 
     </div>
     <div id="esmain"></div>

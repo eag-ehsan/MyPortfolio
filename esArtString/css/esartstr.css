@@ -49,7 +49,9 @@ body{
 .topframe h1 {
     font-size: 2.6vw;
 }
-
+.displaynone{
+    display: none;
+}
 
 .outdiv1{
     border: none;
@@ -85,7 +87,7 @@ body{
     align-items: center;
     justify-content: flex-start;
     width:-webkit-fill-available;
-    overflow: scroll;
+    /*overflow: scroll;*/
     
 }
 .intcard3{
@@ -93,7 +95,7 @@ body{
     display: flex;
     flex-direction: column;
     width:-webkit-fill-available;
-    overflow: scroll;
+    /*overflow: scroll;*/
     align-items: center;
 }
 .tilessty{
@@ -110,6 +112,22 @@ body{
     padding: 0;
     display: flex;
     flex-direction: row;
+}
+.intdrw{
+    border-radius: 5px;
+    width:-webkit-fill-available;
+    background-color: rgb(234, 248, 250);
+    overflow: hidden;
+    margin: 10px;
+    padding: 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.intdrw a{
+    color: #ffffff;
+    font-size: 14px;
+    text-align: center;
 }
 @media screen and (max-width: 600px) {
     .topframe {
